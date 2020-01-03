@@ -6,14 +6,6 @@ The code is built upon a template-project from the STM8L Standard-Peripheral-Lib
 
 It's under their MCD-ST Liberty SW License Agreement V2 license mostly. I just made a few modifications and added files for setting up and controlling parts of the Thermostat like the Display and motor.
 
-The following files are of interest:
-main.c
-stm8l15x_it.c
-
-And more in the folder STVD/Cosmic:
-main.h
-ModelN_xxx.x
-
 ## Building your project
 The project can be built using ST Visual Develop: https://www.st.com/en/development-tools/stvd-stm8.html
 opening the file "project.stw". For compiling you'll need the free Cosmic C Compiler: https://www.cosmic-software.com/download.php (free for usage with STM8)
