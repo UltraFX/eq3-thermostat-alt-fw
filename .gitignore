@@ -1,6 +1,4 @@
 STVD/Cosmic/Debug
 STVD/Cosmic/Release
 STVD/Cosmic/stm8l05xx6_Programmer
-STM8L_SPL/*
-STM8_EVAL/*
 *.dep
