@@ -75,7 +75,7 @@ String.6.0=2009,2,13,10,54,28
 String.100.0=$(TargetFName)
 String.101.0=
 String.102.0=
-String.103.0=.\;..\..\library\inc;..\..\library\src;..\..;..\..\..\library\src;..\..\..\..\libraries\stm8l15x_stdperiph_driver\src;
+String.103.0=.\;..\..\library\inc;..\..\library\src;..\..;..\..\..\library\src;..\..\stm8l_spl\src;
 
 [Root.Config.0.Settings.2]
 String.2.0=
@@ -84,7 +84,7 @@ String.100.0=STM8L052C6
 
 [Root.Config.0.Settings.3]
 String.2.0=Compiling $(InputFile)...
-String.3.0=cxstm8 +modsl0 -customDebCompat -customOpt +compact +split -customC-pp -customLst -l -dSTM8L05X_MD_VL -dUSE_STM8L1526_EVAL -i..\.. -i..\..\..\..\libraries\stm8l15x_stdperiph_driver\inc -i..\..\..\..\utilities\stm8_eval -i..\..\..\..\utilities\stm8_eval\common -i..\..\..\..\utilities\stm8_eval\stm8l1526_eval -i..\..\..\..\utilities\misc $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
+String.3.0=cxstm8 +modsl0 -customDebCompat -customOpt +compact +split -customC-pp -customLst -l -dSTM8L05X_MD_VL -dUSE_STM8L1526_EVAL -i..\.. -i..\..\STM8L_SPL\\inc -i..\..\stm8_eval -i..\..\stm8_eval\common -i..\..\stm8_eval\stm8l1526_eval -i..\..\misc $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
 String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
 String.5.0=$(IntermPath)$(InputName).ls
 String.6.0=2011,4,29,18,52,47
@@ -158,7 +158,7 @@ Int.108=0
 String.6.0=2009,2,13,10,54,28
 String.100.0=$(TargetFName)
 String.101.0=
-String.103.0=.\;..\..\library\inc;..\..\library\src;..\..;..\..\..\library\src;..\..\..\..\libraries\stm8l15x_stdperiph_driver\src;
+String.103.0=.\;..\..\library\inc;..\..\library\src;..\..;..\..\..\library\src;..\..\stm8l_spl\src;
 
 [Root.Config.1.Settings.2]
 String.2.0=
@@ -244,7 +244,7 @@ Int.1=0
 
 [Root.Misc.Config.0.Settings.1]
 String.2.0=Compiling $(InputFile)...
-String.3.0=cxstm8 +modsl0 -customDebCompat -customOpt +compact +split -customC-pp -customLst -l -dSTM8L05X_MD_VL -dUSE_STM8L1526_EVAL -i..\.. -i..\..\..\..\libraries\stm8l15x_stdperiph_driver\inc -i..\..\..\..\utilities\stm8_eval -i..\..\..\..\utilities\stm8_eval\common -i..\..\..\..\utilities\stm8_eval\stm8l1526_eval -i..\..\..\..\utilities\misc $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
+String.3.0=cxstm8 +modsl0 -customDebCompat -customOpt +compact +split -customC-pp -customLst -l -dSTM8L05X_MD_VL -dUSE_STM8L1526_EVAL -i..\.. -i..\..\STM8L_SPL\\inc -i..\..\stm8_eval -i..\..\stm8_eval\common -i..\..\stm8_eval\stm8l1526_eval -i..\..\misc $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
 String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
 String.5.0=$(IntermPath)$(InputName).ls
 String.6.0=2011,4,29,18,52,47
@@ -293,7 +293,7 @@ String.6.0=2009,2,13,10,54,28
 [Root.STM8L15x_StdPeriph_Driver]
 ElemType=Folder
 PathName=STM8L15x_StdPeriph_Driver
-Child=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_wwdg.c
+Child=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_wwdg.c
 Next=Root.User
 Config.0=Root.STM8L15x_StdPeriph_Driver.Config.0
 Config.1=Root.STM8L15x_StdPeriph_Driver.Config.1
@@ -318,7 +318,7 @@ Int.1=0
 
 [Root.STM8L15x_StdPeriph_Driver.Config.0.Settings.1]
 String.2.0=Compiling $(InputFile)...
-String.3.0=cxstm8 +modsl0 -customDebCompat -customOpt +compact +split -customC-pp -customLst -l -dSTM8L05X_MD_VL -dUSE_STM8L1526_EVAL -i..\.. -i..\..\..\..\libraries\stm8l15x_stdperiph_driver\inc -i..\..\..\..\utilities\stm8_eval -i..\..\..\..\utilities\stm8_eval\common -i..\..\..\..\utilities\stm8_eval\stm8l1526_eval -i..\..\..\..\utilities\misc $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
+String.3.0=cxstm8 +modsl0 -customDebCompat -customOpt +compact +split -customC-pp -customLst -l -dSTM8L05X_MD_VL -dUSE_STM8L1526_EVAL -i..\.. -i..\..\STM8L_SPL\\inc -i..\..\stm8_eval -i..\..\stm8_eval\common -i..\..\stm8_eval\stm8l1526_eval -i..\..\misc $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
 String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
 String.5.0=$(IntermPath)$(InputName).ls
 String.6.0=2011,4,29,18,52,47
@@ -364,139 +364,144 @@ String.4.0=
 String.5.0=
 String.6.0=2009,2,13,10,54,28
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_wwdg.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_wwdg.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_wwdg.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_wfe.c
+PathName=..\..\stm8l_spl\src\stm8l15x_wwdg.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_wfe.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_wfe.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_wfe.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_wfe.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_usart.c
+PathName=..\..\stm8l_spl\src\stm8l15x_wfe.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_usart.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_usart.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_usart.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_usart.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_tim5.c
+PathName=..\..\stm8l_spl\src\stm8l15x_usart.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_tim5.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_tim5.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_tim5.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_tim5.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_tim4.c
+PathName=..\..\stm8l_spl\src\stm8l15x_tim5.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_tim4.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_tim4.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_tim4.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_tim4.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_tim3.c
+PathName=..\..\stm8l_spl\src\stm8l15x_tim4.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_tim3.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_tim3.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_tim3.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_tim3.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_tim2.c
+PathName=..\..\stm8l_spl\src\stm8l15x_tim3.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_tim2.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_tim2.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_tim2.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_tim2.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_tim1.c
+PathName=..\..\stm8l_spl\src\stm8l15x_tim2.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_tim1.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_tim1.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_tim1.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_tim1.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_syscfg.c
+PathName=..\..\stm8l_spl\src\stm8l15x_tim1.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_syscfg.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_syscfg.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_syscfg.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_syscfg.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_spi.c
+PathName=..\..\stm8l_spl\src\stm8l15x_syscfg.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_spi.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_spi.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_spi.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_spi.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_rtc.c
+PathName=..\..\stm8l_spl\src\stm8l15x_spi.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_rtc.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_rtc.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_rtc.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_rtc.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_rst.c
+PathName=..\..\stm8l_spl\src\stm8l15x_rtc.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_rst.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_rst.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_rst.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_rst.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_pwr.c
+PathName=..\..\stm8l_spl\src\stm8l15x_rst.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_pwr.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_pwr.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_pwr.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_pwr.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_lcd.c
+PathName=..\..\stm8l_spl\src\stm8l15x_pwr.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_lcd.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_lcd.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_lcd.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_lcd.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_iwdg.c
+PathName=..\..\stm8l_spl\src\stm8l15x_lcd.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_iwdg.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_iwdg.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_iwdg.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_iwdg.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_itc.c
+PathName=..\..\stm8l_spl\src\stm8l15x_iwdg.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_itc.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_itc.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_itc.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_itc.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_irtim.c
+PathName=..\..\stm8l_spl\src\stm8l15x_itc.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_irtim.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_irtim.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_irtim.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_irtim.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_i2c.c
+PathName=..\..\stm8l_spl\src\stm8l15x_irtim.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_i2c.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_i2c.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_i2c.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_i2c.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_gpio.c
+PathName=..\..\stm8l_spl\src\stm8l15x_i2c.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_gpio.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_gpio.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_gpio.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_gpio.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_flash.c
+PathName=..\..\stm8l_spl\src\stm8l15x_gpio.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_flash.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_flash.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_flash.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_flash.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_exti.c
+PathName=..\..\stm8l_spl\src\stm8l15x_flash.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_exti.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_exti.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_exti.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_exti.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_dma.c
+PathName=..\..\stm8l_spl\src\stm8l15x_exti.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_dma.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_dma.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_dma.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_dma.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_dac.c
+PathName=..\..\stm8l_spl\src\stm8l15x_dma.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_dac.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_dac.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_dac.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_dac.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_comp.c
+PathName=..\..\stm8l_spl\src\stm8l15x_dac.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_comp.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_comp.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_comp.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_comp.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_clk.c
+PathName=..\..\stm8l_spl\src\stm8l15x_comp.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_clk.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_clk.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_clk.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_clk.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_beep.c
+PathName=..\..\stm8l_spl\src\stm8l15x_clk.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_beep.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_beep.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_beep.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_beep.c
-Next=Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_adc.c
+PathName=..\..\stm8l_spl\src\stm8l15x_beep.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_aes.c
 
-[Root.STM8L15x_StdPeriph_Driver...\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_adc.c]
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_aes.c]
 ElemType=File
-PathName=..\..\..\..\libraries\stm8l15x_stdperiph_driver\src\stm8l15x_adc.c
+PathName=..\..\stm8l_spl\src\stm8l15x_aes.c
+Next=Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_adc.c
+
+[Root.STM8L15x_StdPeriph_Driver...\..\stm8l_spl\src\stm8l15x_adc.c]
+ElemType=File
+PathName=..\..\stm8l_spl\src\stm8l15x_adc.c
 
 [Root.User]
 ElemType=Folder
@@ -525,7 +530,7 @@ Int.1=0
 
 [Root.User.Config.0.Settings.1]
 String.2.0=Compiling $(InputFile)...
-String.3.0=cxstm8 +modsl0 -customDebCompat -customOpt +compact +split -customC-pp -customLst -l -dSTM8L05X_MD_VL -dUSE_STM8L1526_EVAL -i..\.. -i..\..\..\..\libraries\stm8l15x_stdperiph_driver\inc -i..\..\..\..\utilities\stm8_eval -i..\..\..\..\utilities\stm8_eval\common -i..\..\..\..\utilities\stm8_eval\stm8l1526_eval -i..\..\..\..\utilities\misc $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
+String.3.0=cxstm8 +modsl0 -customDebCompat -customOpt +compact +split -customC-pp -customLst -l -dSTM8L05X_MD_VL -dUSE_STM8L1526_EVAL -i..\.. -i..\..\STM8L_SPL\\inc -i..\..\stm8_eval -i..\..\stm8_eval\common -i..\..\stm8_eval\stm8l1526_eval -i..\..\misc $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
 String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
 String.5.0=$(IntermPath)$(InputName).ls
 String.6.0=2011,4,29,18,52,47
