@@ -12,6 +12,18 @@
 #define SYMBOL_MANUAL			9
 #define SYMBOL_AUTO				10
 
+#define FLASH_ENABLE			1
+#define FLASH_DISABLE			0
+
+/** @brief Initialize LCD Display */
+extern void Disp_Init(void);
+
+/** @brief Let the display flash
+	* 
+	* @param[in]	byMode	FLASH_ENABLE or FLASH_DISABLE
+	*/
+extern void Disp_Flash(uint8_t byMode);
+
 /** @brief Clear the whole Display */
 extern void Disp_Clear(void);
 

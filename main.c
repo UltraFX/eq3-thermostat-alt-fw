@@ -45,8 +45,9 @@
 volatile uint32_t dwTick = 0;
 volatile uint8_t byTrigger = 0;
 volatile uint32_t dwUartTimeout = 0;
+volatile uint8_t	byRecAction = 0;
 
-porotocol_t sProtocol;
+protocol_t sProtocol;
 
 //static uint8_t byDirection = DIR_OPEN;
 
@@ -59,8 +60,8 @@ RTC_AlarmTypeDef  RTC_AlarmStr;
 /* Private functions ---------------------------------------------------------*/
 void delay_ms(uint32_t dwDelay)
 {
-	uint32_t dwEnd = dwTick + dwDelay;
-	while(dwTick < dwEnd);
+	uint32_t dwEnd = dwTick;
+	while(dwTick - dwEnd < dwDelay);
 }
 
 void Calendar_Init(void)
@@ -86,24 +87,7 @@ void Calendar_Init(void)
 
 void APP_LCD_Init(void)
 {
-	/* Enable LCD clock */
-  CLK_PeripheralClockConfig(CLK_Peripheral_LCD, ENABLE);
-	
-	/* Initialize the LCD */
-  LCD_Init(LCD_Prescaler_2, LCD_Divider_18, LCD_Duty_1_4,
-           LCD_Bias_1_3, LCD_VoltageSource_Internal);
-
-  /* Mask register*/
-  LCD_PortMaskConfig(LCD_PortMaskRegister_0, 0xFF);
-  LCD_PortMaskConfig(LCD_PortMaskRegister_1, 0xFF);
-  LCD_PortMaskConfig(LCD_PortMaskRegister_2, 0x03);
-  LCD_PortMaskConfig(LCD_PortMaskRegister_3, 0x00);
-
-  LCD_ContrastConfig(LCD_Contrast_Level_4);
-  LCD_DeadTimeConfig(LCD_DeadTime_0);
-  LCD_PulseOnDurationConfig(LCD_PulseOnDuration_1);
-
-  LCD_Cmd(ENABLE); /*!< Enable LCD peripheral */
+	Disp_Init();
 }
 
 void APP_ADC_Init(void)
@@ -134,9 +118,7 @@ void APP_UART_Init(void)
 {
 	CLK_PeripheralClockConfig(CLK_Peripheral_USART1, ENABLE);
 	
-	/* Protocol Interrupt */
-	GPIO_Init(GPIOE, GPIO_Pin_7, GPIO_Mode_In_FL_IT);
-	EXTI_SetPinSensitivity((EXTI_Pin_TypeDef)GPIO_Pin_7, EXTI_Trigger_Falling);
+	GPIO_Init(GPIOE, GPIO_Pin_7, GPIO_Mode_In_FL_No_IT);
 	
 	/* Remap UART Pins */
 	SYSCFG_REMAPPinConfig(REMAP_Pin_USART1TxRxPortA, ENABLE);
@@ -144,6 +126,7 @@ void APP_UART_Init(void)
 	GPIO_ExternalPullUpConfig(GPIOA, GPIO_Pin_2, ENABLE);
 	GPIO_ExternalPullUpConfig(GPIOA, GPIO_Pin_3, ENABLE);
 	
+	USART_ITConfig(USART1, USART_IT_RXNE, DISABLE);
 	USART_Init(USART1, (uint32_t)38400, USART_WordLength_8b, 
 						 USART_StopBits_1, USART_Parity_No, (USART_Mode_TypeDef)(USART_Mode_Tx | USART_Mode_Rx));						 
 						 
@@ -174,9 +157,13 @@ void APP_TIM_Int_Handler(void)
 	}
 }
 
+static uint8_t byPin = 0;
+
 /** @brief  Main program.*/
 void main(void)
 {	
+	static uint8_t byDbg = 0;
+
 	/* Select HSI as system clock source */
   CLK_SYSCLKSourceSwitchCmd(ENABLE);
   CLK_SYSCLKSourceConfig(CLK_SYSCLKSource_HSI);
@@ -204,41 +191,57 @@ void main(void)
 	GPIO_Init(GPIOD, GPIO_Pin_7, GPIO_Mode_Out_PP_Low_Slow);
 	
 	GPIO_SetBits(GPIOD, GPIO_Pin_4|GPIO_Pin_5|GPIO_Pin_6|GPIO_Pin_7);
-  
-  /* Initialize Peripherals */	
-	APP_LCD_Init();
+	
 	APP_UART_Init();
 	APP_Timer_Init();
+	
+  /* Initialize Peripherals */	
+	APP_LCD_Init();
 	APP_ADC_Init();
 	UI_Buttons_Init();	
 	ModelN_Timer_Init();
-
+	
 	/* Enable general interrupts */
   enableInterrupts();
+	
+	delay_ms(50);
+	while(byPin == 0)
+	{
+		byPin = GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_7);
+	}
 		
+	/* Configure Halt/Sleep-Mode */
 	CLK_HaltConfig(CLK_Halt_SlowWakeup, ENABLE);	
 		
+	/* Do first conversion of ADC */
 	ADC_SoftwareStartConv(ADC1);
 	
 	byTrigger = 0;
 	
+	/* Send initial byte to signal Host-Controller to startup */
+	while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET);
+	USART_SendData8(USART1, 'X');
+	while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET);
+	
+	/* Protocol Interrupt */
+	GPIO_Init(GPIOE, GPIO_Pin_7, GPIO_Mode_In_FL_IT);
+	EXTI_SetPinSensitivity((EXTI_Pin_TypeDef)GPIO_Pin_7, EXTI_Trigger_Falling);
+	
   /* Infinite loop */
   while (1)
   {		
-	  /* Trigger fires, when UART Transmission takes place */
-		if(byTrigger == 1)
+	  /* Trigger fires, when UART Transmission takes place */	
+		while(modeln_app_buf_available())
 		{
-			byTrigger = 0;
+			//Disp_Number(3, byDbg++);
 			
-			ModelN_Update_Data();				
-			ModelN_Cmd();
-			//ModelN_Send_Protocol();
-    }
+			ModelN_Cmd(modeln_app_get_buf());
+			ModelN_Send_Protocol();			
+		}
 		
-		ModelN_Send_Protocol();
+		ModelN_Menu();
 		UI_Handler();
 		delay_ms(5);
-		ModelN_Menu();			
   }
 }
 

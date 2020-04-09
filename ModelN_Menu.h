@@ -3,13 +3,15 @@
 
 typedef enum {
 	MENU_INIT,
+	MENU_WAIT,
 	MENU_CALIBRATE,
 	MENU_SHOW_TIME,
 	MENU_SHOW_TEMP_CUR,
 	MENU_SHOW_TEMP_SET,
 	MENU_SHOW_TEMP_OUT,
 	MENU_SHOW_HUMID,
-	MENU_SET_TEMP
+	MENU_SET_TEMP,
+	MENU_THREAD
 } menu_t;
 
 /**	@brief Menu statemachine */

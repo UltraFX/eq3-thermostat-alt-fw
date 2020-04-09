@@ -506,7 +506,7 @@ PathName=..\..\stm8l_spl\src\stm8l15x_adc.c
 [Root.User]
 ElemType=Folder
 PathName=User
-Child=Root.User...\..\modeln_display_driver.c
+Child=Root.User...\..\thread_mode.c
 Config.0=Root.User.Config.0
 Config.1=Root.User.Config.1
 
@@ -575,6 +575,11 @@ String.3.0=
 String.4.0=
 String.5.0=
 String.6.0=2009,2,13,10,54,28
+
+[Root.User...\..\thread_mode.c]
+ElemType=File
+PathName=..\..\thread_mode.c
+Next=Root.User...\..\modeln_display_driver.c
 
 [Root.User...\..\modeln_display_driver.c]
 ElemType=File

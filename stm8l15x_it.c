@@ -274,9 +274,10 @@ INTERRUPT_HANDLER(EXTI6_IRQHandler,14)
   */
 INTERRUPT_HANDLER(EXTI7_IRQHandler,15)
 {
-	byTrigger = 1;
-		
 	EXTI_ClearITPendingBit(EXTI_IT_Pin7);
+	
+	byRecAction = 1;
+	USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
     /* In order to detect unexpected events during development,
        it is recommended to set a breakpoint on the following instruction.
     */
@@ -432,7 +433,12 @@ INTERRUPT_HANDLER(USART1_TX_TIM5_UPD_OVF_TRG_BRK_IRQHandler,27)
   */
 INTERRUPT_HANDLER(USART1_RX_TIM5_CC_IRQHandler,28)
 {
+	uint16_t wFlags = USART1->SR;
 	
+  if(!(wFlags & (USART_FLAG_OR | USART_FLAG_NF | USART_FLAG_FE | USART_FLAG_PE)))
+	{
+		modeln_app_receive_data(USART_ReceiveData8(USART1));
+	}
     /* In order to detect unexpected events during development,
        it is recommended to set a breakpoint on the following instruction.
     */

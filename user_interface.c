@@ -6,6 +6,14 @@ static volatile uint8_t byButtons = 0;
 volatile uint8_t byButtonActive = 0;
 volatile uint16_t	wTimeout = BUT_TIMEOUT;
 
+static uint8_t	byInit = 1;
+
+/* Variables needed for calculation of weekday */
+static const uint8_t byaCentury[4] = {5, 3, 1, 0};
+static const uint8_t byaMonthCodeLeap[12] = {5, 1, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
+static const uint8_t byaMonthCode[12] = {6, 2, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
+static const uint16_t wLeapYear = 2020;
+
 struct
 {
 	unsigned Key0:1;
@@ -71,57 +79,96 @@ void UI_Handler(void)
 	static int8_t iEncValue = 0;
 	static uint8_t byNumber = 0, byNumberOld = 0;
 	
-	wTimeout--;
-	if(wTimeout == 0)
-	{
-		ModelN_Menu_Set_State(MENU_SHOW_TIME);
-		byRunning = 0;
-	}
-	
-	UI_Encoder_Check();	
-	
-	byButtons = UI_Buttons_Debounce();
-	UI_Buttons_Check();			
-			
-	
-	if(UI_Buttons_Get(BUTTON0) == 1)
-	{
-		if(ModelN_Menu_Get_State() < MENU_SHOW_HUMID)
+	if(ModelN_get_init_state() == 0)
+	{		
+		if(wTimeout > 0)
 		{
-			ModelN_Menu_Set_State(ModelN_Menu_Get_State()+1);
+			wTimeout--;
 		}
-		else
+		
+		if(wTimeout == 0)
 		{
 			ModelN_Menu_Set_State(MENU_SHOW_TIME);
+			byRunning = 0;
 		}
-	}
-
-	/* Middle Button -> When pressed, go to temperature setting menu */
-	if(ModelN_Menu_Get_State() != MENU_SET_TEMP)
-	{
-		if(UI_Buttons_Get(BUTTON1) == 1)
+	
+		UI_Encoder_Check();	
+		
+		byButtons = UI_Buttons_Debounce();
+		UI_Buttons_Check();			
+				
+		
+		if(UI_Buttons_Get(BUTTON0) == 1)
 		{
-			ModelN_Menu_Set_State(MENU_SET_TEMP);
+			if(ModelN_Menu_Get_State() < MENU_SHOW_HUMID)
+			{
+				ModelN_Menu_Set_State(ModelN_Menu_Get_State()+1);
+			}
+			else
+			{
+				ModelN_Menu_Set_State(MENU_SHOW_TIME);
+			}
 		}
-	}
 	
-	if(UI_Buttons_Get(BUTTON2) == 1)
-	{
-	}
-	
-	if(byNumber != byNumberOld)
-	{
-		Disp_Clear();
-		Disp_Number(1, byNumber/100);
-		Disp_Number(2, (byNumber%100)/10);
-		Disp_Number(3, (byNumber%100)%10);
-		byNumberOld = byNumber;
+		/* Middle Button -> When pressed, go to temperature setting menu */
+		if(ModelN_Menu_Get_State() != MENU_SET_TEMP)
+		{
+			if(UI_Buttons_Get(BUTTON1) == 1)
+			{
+				ModelN_Menu_Set_State(MENU_SET_TEMP);
+			}
+		}
+		
+		if(UI_Buttons_Get(BUTTON2) == 1)
+		{
+		}
+		
+		if(byNumber != byNumberOld)
+		{
+			Disp_Clear();
+			Disp_Number(1, byNumber/100);
+			Disp_Number(2, (byNumber%100)/10);
+			Disp_Number(3, (byNumber%100)%10);
+			byNumberOld = byNumber;
+		}
 	}
 }
 
 void UI_Timeout_Reset(void)
 {
 	wTimeout = BUT_TIMEOUT;
+}
+
+void UI_Disp_Init(void)
+{
+	Disp_Clear();
+	Disp_Character(1, 'I');
+	Disp_Character(2, 'n');
+	Disp_Character(3, 'i');
+	Disp_Character(4, 't');
+}
+
+uint8_t ui_calc_weekday(uint16_t wYear, uint8_t byMonth, uint8_t byDay)
+{
+	uint8_t byWeekday = 0;
+	
+	uint8_t byCenturyCode = (uint8_t)(wYear/100);
+	
+	byCenturyCode -= 18;
+	byCenturyCode %= 4;
+	byCenturyCode = byaCentury[byCenturyCode];
+	
+	if((wYear-wLeapYear)%4 == 0) 
+	{
+		/* LeapYear */
+		byWeekday = (byCenturyCode + ((wYear%100 + (wYear%100 / 4) - 1)%7) + byaMonthCodeLeap[byMonth-1] + byDay)%7;
+	}
+	else
+	{
+		byWeekday = (byCenturyCode + (wYear%100 + (wYear%100 / 4)%7) + byaMonthCode[byMonth-1] + byDay)%7;
+	}
+	
+	return byWeekday;
 }
 
 /* ENCODER *******************************************************************/

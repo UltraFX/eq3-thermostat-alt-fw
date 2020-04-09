@@ -10,6 +10,8 @@ extern volatile uint8_t byButtonActive;
 /** @brief Initialize GPIOs for Buttons and Rotary Encoder */
 extern void UI_Buttons_Init(void);
 
+extern uint8_t ui_calc_weekday(uint16_t wYear, uint8_t byMonth, uint8_t byDay);
+
 /** @brief UI Handler to handle UI things */
 extern void UI_Handler(void);
 
@@ -37,5 +39,8 @@ extern int8_t UI_Encoder_Read(void);
 	* @return			1 = Button pressed, 0 = Button not pressed
 	*/
 extern uint8_t UI_Buttons_Get(uint8_t byButton);
+
+/** @brief Display "Init" after booting */
+extern void UI_Disp_Init(void);
 
 #endif

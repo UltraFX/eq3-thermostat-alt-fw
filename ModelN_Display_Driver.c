@@ -147,6 +147,41 @@ void Disp_Bargraph_number(uint8_t byNumber)
 	}
 }
 
+void Disp_Init(void)
+{
+	/* Enable LCD clock */
+  CLK_PeripheralClockConfig(CLK_Peripheral_LCD, ENABLE);
+	
+	/* Initialize the LCD */
+  LCD_Init(LCD_Prescaler_2, LCD_Divider_18, LCD_Duty_1_4,
+           LCD_Bias_1_3, LCD_VoltageSource_Internal);
+
+  /* Mask register*/
+  LCD_PortMaskConfig(LCD_PortMaskRegister_0, 0xFF);
+  LCD_PortMaskConfig(LCD_PortMaskRegister_1, 0xFF);
+  LCD_PortMaskConfig(LCD_PortMaskRegister_2, 0x03);
+  LCD_PortMaskConfig(LCD_PortMaskRegister_3, 0x00);
+
+  LCD_ContrastConfig(LCD_Contrast_Level_4);
+  LCD_DeadTimeConfig(LCD_DeadTime_0);
+  LCD_PulseOnDurationConfig(LCD_PulseOnDuration_1);
+
+	Disp_Flash(FLASH_DISABLE);
+  LCD_Cmd(ENABLE); /*!< Enable LCD peripheral */
+}
+
+void Disp_Flash(uint8_t byMode)
+{
+	if(byMode == 0)
+	{
+		LCD_BlinkConfig(LCD_BlinkMode_Off, LCD_BlinkFrequency_Div512); //LCD_BlinkMode_TypeDef LCD_BlinkMode, LCD_BlinkFrequency_TypeDef LCD_BlinkFrequency
+	}
+	else
+	{
+		LCD_BlinkConfig(LCD_BlinkMode_AllSEG_AllCOM, LCD_BlinkFrequency_Div512);
+	}
+}
+
 void Disp_Bargraph(uint32_t dwNumber)
 {
 	LCD->RAM[LCD_RAMRegister_12] = (dwNumber | 0x000001)?LCD->RAM[LCD_RAMRegister_12] | 0x01:LCD->RAM[LCD_RAMRegister_12] & ~0x01; 
@@ -280,15 +315,8 @@ void Disp_Character(uint8_t bySegment, char cChar)
 	
 	switch(cChar)
 	{
-	case 'C':	LCD->RAM[(bySegA[bySeg][0])] |= bySegA[bySeg][1];
-						LCD->RAM[(bySegB[bySeg][0])] &= ~bySegB[bySeg][1];
-						LCD->RAM[(bySegC[bySeg][0])] &= ~bySegC[bySeg][1];
-						LCD->RAM[bySegD[bySeg][0]] |= bySegD[bySeg][1];
-						LCD->RAM[bySegE[bySeg][0]] |= bySegE[bySeg][1];
-						LCD->RAM[bySegF[bySeg][0]] |= bySegF[bySeg][1];
-						LCD->RAM[bySegG[bySeg][0]] &= ~bySegG[bySeg][1];
-						break;
-	case 'A':	LCD->RAM[bySegA[bySeg][0]] |= bySegA[bySeg][1];
+	case 'A':	
+	case 'a':	LCD->RAM[bySegA[bySeg][0]] |= bySegA[bySeg][1];
 						LCD->RAM[bySegB[bySeg][0]] |= bySegB[bySeg][1];
 						LCD->RAM[bySegC[bySeg][0]] |= bySegC[bySeg][1];
 						LCD->RAM[bySegD[bySeg][0]] &= ~bySegD[bySeg][1];
@@ -296,15 +324,97 @@ void Disp_Character(uint8_t bySegment, char cChar)
 						LCD->RAM[bySegF[bySeg][0]] |= bySegF[bySeg][1];
 						LCD->RAM[bySegG[bySeg][0]] |= bySegG[bySeg][1];
 						break;
-	case 'L':	LCD->RAM[bySegA[bySeg][0]] &= ~bySegA[bySeg][1];
+	case 'C':
+	case 'c': LCD->RAM[bySegA[bySeg][0]] &= ~bySegA[bySeg][1];
+						LCD->RAM[bySegB[bySeg][0]] &= ~bySegB[bySeg][1];
+						LCD->RAM[bySegC[bySeg][0]] &= ~bySegC[bySeg][1];
+						LCD->RAM[bySegD[bySeg][0]] |= bySegD[bySeg][1];
+						LCD->RAM[bySegE[bySeg][0]] |= bySegE[bySeg][1];
+						LCD->RAM[bySegF[bySeg][0]] &= ~bySegF[bySeg][1];
+						LCD->RAM[bySegG[bySeg][0]] |= bySegG[bySeg][1];
+						break;
+	case 'E':	
+	case 'e':	LCD->RAM[bySegA[bySeg][0]] |= bySegA[bySeg][1];
+						LCD->RAM[bySegB[bySeg][0]] &= ~bySegB[bySeg][1];
+						LCD->RAM[bySegC[bySeg][0]] &= ~bySegC[bySeg][1];
+						LCD->RAM[bySegD[bySeg][0]] |= bySegD[bySeg][1];
+						LCD->RAM[bySegE[bySeg][0]] |= bySegE[bySeg][1];
+						LCD->RAM[bySegF[bySeg][0]] |= bySegF[bySeg][1];
+						LCD->RAM[bySegG[bySeg][0]] |= bySegG[bySeg][1];
+						break;							
+	case 'I':	
+	case 'i':	LCD->RAM[bySegA[bySeg][0]] &= ~bySegA[bySeg][1];
+						LCD->RAM[bySegB[bySeg][0]] &= ~bySegB[bySeg][1];
+						LCD->RAM[bySegC[bySeg][0]] |= bySegC[bySeg][1];
+						LCD->RAM[bySegD[bySeg][0]] &= ~bySegD[bySeg][1];
+						LCD->RAM[bySegE[bySeg][0]] &= ~bySegE[bySeg][1];
+						LCD->RAM[bySegF[bySeg][0]] &= ~bySegF[bySeg][1];
+						LCD->RAM[bySegG[bySeg][0]] &= ~bySegG[bySeg][1];
+						break;	
+  case 'J':	
+	case 'j':	LCD->RAM[bySegA[bySeg][0]] &= ~bySegA[bySeg][1];
+						LCD->RAM[bySegB[bySeg][0]] |= bySegB[bySeg][1];
+						LCD->RAM[bySegC[bySeg][0]] |= bySegC[bySeg][1];
+						LCD->RAM[bySegD[bySeg][0]] |= bySegD[bySeg][1];
+						LCD->RAM[bySegE[bySeg][0]] |= bySegE[bySeg][1];
+						LCD->RAM[bySegF[bySeg][0]] &= ~bySegF[bySeg][1];
+						LCD->RAM[bySegG[bySeg][0]] &= ~bySegG[bySeg][1];
+						break;						
+	case 'K':	
+	case 'k':	LCD->RAM[bySegA[bySeg][0]] |= bySegA[bySeg][1];
+						LCD->RAM[bySegB[bySeg][0]] &= ~bySegB[bySeg][1];
+						LCD->RAM[bySegC[bySeg][0]] |= bySegC[bySeg][1];
+						LCD->RAM[bySegD[bySeg][0]] &= ~bySegD[bySeg][1];
+						LCD->RAM[bySegE[bySeg][0]] |= bySegE[bySeg][1];
+						LCD->RAM[bySegF[bySeg][0]] |= bySegF[bySeg][1];
+						LCD->RAM[bySegG[bySeg][0]] |= bySegG[bySeg][1];
+						break;						
+	case 'L':	
+	case 'l': LCD->RAM[bySegA[bySeg][0]] &= ~bySegA[bySeg][1];
 						LCD->RAM[bySegB[bySeg][0]] &= ~bySegB[bySeg][1];
 						LCD->RAM[bySegC[bySeg][0]] &= ~bySegC[bySeg][1];
 						LCD->RAM[bySegD[bySeg][0]] |= bySegD[bySeg][1];
 						LCD->RAM[bySegE[bySeg][0]] |= bySegE[bySeg][1];
 						LCD->RAM[bySegF[bySeg][0]] |= bySegF[bySeg][1];
 						LCD->RAM[bySegG[bySeg][0]] &= ~bySegG[bySeg][1];
-						break;	
-	case '-': LCD->RAM[bySegA[bySeg][0]] &= ~bySegA[bySeg][1];
+						break;
+	case 'N':
+	case 'n': LCD->RAM[bySegA[bySeg][0]] &= ~bySegA[bySeg][1];
+						LCD->RAM[bySegB[bySeg][0]] &= ~bySegB[bySeg][1];
+						LCD->RAM[bySegC[bySeg][0]] |= bySegC[bySeg][1];
+						LCD->RAM[bySegD[bySeg][0]] &= ~bySegD[bySeg][1];
+						LCD->RAM[bySegE[bySeg][0]] |= bySegE[bySeg][1];
+						LCD->RAM[bySegF[bySeg][0]] &= ~bySegF[bySeg][1];
+						LCD->RAM[bySegG[bySeg][0]] |= bySegG[bySeg][1];
+						break;
+	case 'O':
+	case 'o': LCD->RAM[bySegA[bySeg][0]] &= ~bySegA[bySeg][1];
+						LCD->RAM[bySegB[bySeg][0]] &= ~bySegB[bySeg][1];
+						LCD->RAM[bySegC[bySeg][0]] |= bySegC[bySeg][1];
+						LCD->RAM[bySegD[bySeg][0]] |= bySegD[bySeg][1];
+						LCD->RAM[bySegE[bySeg][0]] |= bySegE[bySeg][1];
+						LCD->RAM[bySegF[bySeg][0]] &= ~bySegF[bySeg][1];
+						LCD->RAM[bySegG[bySeg][0]] |= bySegG[bySeg][1];
+						break;
+	case 'R':
+	case 'r': LCD->RAM[bySegA[bySeg][0]] &= ~bySegA[bySeg][1];
+						LCD->RAM[bySegB[bySeg][0]] &= ~bySegB[bySeg][1];
+						LCD->RAM[bySegC[bySeg][0]] &= ~bySegC[bySeg][1];
+						LCD->RAM[bySegD[bySeg][0]] &= ~bySegD[bySeg][1];
+						LCD->RAM[bySegE[bySeg][0]] |= bySegE[bySeg][1];
+						LCD->RAM[bySegF[bySeg][0]] &= ~bySegF[bySeg][1];
+						LCD->RAM[bySegG[bySeg][0]] |= bySegG[bySeg][1];
+						break;
+	case 'T':
+	case 't': LCD->RAM[bySegA[bySeg][0]] &= ~bySegA[bySeg][1];
+						LCD->RAM[bySegB[bySeg][0]] &= ~bySegB[bySeg][1];
+						LCD->RAM[bySegC[bySeg][0]] &= ~bySegC[bySeg][1];
+						LCD->RAM[bySegD[bySeg][0]] |= bySegD[bySeg][1];
+						LCD->RAM[bySegE[bySeg][0]] |= bySegE[bySeg][1];
+						LCD->RAM[bySegF[bySeg][0]] |= bySegF[bySeg][1];
+						LCD->RAM[bySegG[bySeg][0]] |= bySegG[bySeg][1];
+						break;
+  case '-': LCD->RAM[bySegA[bySeg][0]] &= ~bySegA[bySeg][1];
 						LCD->RAM[bySegB[bySeg][0]] &= ~bySegB[bySeg][1];
 						LCD->RAM[bySegC[bySeg][0]] &= ~bySegC[bySeg][1];
 						LCD->RAM[bySegD[bySeg][0]] &= ~bySegD[bySeg][1];
@@ -319,24 +429,10 @@ void Disp_Character(uint8_t bySegment, char cChar)
 						LCD->RAM[bySegE[bySeg][0]] &= ~bySegE[bySeg][1];
 						LCD->RAM[bySegF[bySeg][0]] &= ~bySegF[bySeg][1];
 						LCD->RAM[bySegG[bySeg][0]] &= ~bySegG[bySeg][1];
-						break;
-	case 'c': LCD->RAM[bySegA[bySeg][0]] &= ~bySegA[bySeg][1];
-						LCD->RAM[bySegB[bySeg][0]] &= ~bySegB[bySeg][1];
-						LCD->RAM[bySegC[bySeg][0]] &= ~bySegC[bySeg][1];
-						LCD->RAM[bySegD[bySeg][0]] |= bySegD[bySeg][1];
-						LCD->RAM[bySegE[bySeg][0]] |= bySegE[bySeg][1];
-						LCD->RAM[bySegF[bySeg][0]] &= ~bySegF[bySeg][1];
-						LCD->RAM[bySegG[bySeg][0]] |= bySegG[bySeg][1];
-						break;
-	case 'o': LCD->RAM[bySegA[bySeg][0]] &= ~bySegA[bySeg][1];
-						LCD->RAM[bySegB[bySeg][0]] &= ~bySegB[bySeg][1];
-						LCD->RAM[bySegC[bySeg][0]] |= bySegC[bySeg][1];
-						LCD->RAM[bySegD[bySeg][0]] |= bySegD[bySeg][1];
-						LCD->RAM[bySegE[bySeg][0]] |= bySegE[bySeg][1];
-						LCD->RAM[bySegF[bySeg][0]] &= ~bySegF[bySeg][1];
-						LCD->RAM[bySegG[bySeg][0]] |= bySegG[bySeg][1];
-						break;
-	}
+						break;						
+	default:
+		break;
+	}	
 }
 
 void Disp_Time_Grid(uint8_t byState)

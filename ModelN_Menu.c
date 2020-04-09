@@ -11,15 +11,21 @@ void ModelN_Menu(void)
 	static int8_t iEncValue = 0;
 	static uint16_t	iTempSet = 0;
 	
-	Disp_Clear();
-	Disp_Date(sProtocol.byWeekDay);
-	Disp_Bargraph_number(sProtocol.bySignal);
+	if((eState > MENU_CALIBRATE) && (eState < MENU_THREAD))
+	{
+		Disp_Clear();
+		Disp_Date(sProtocol.byWeekDay);
+		Disp_Bargraph_number(sProtocol.bySignal);
+  }
 				
 	switch(eState)
 	{
 	case MENU_INIT:
-	  ModelN_Init();
-		eState = INIT_ENTRANCE;
+		ModelN_Init();
+		UI_Disp_Init();
+		eState = MENU_WAIT;
+		break;
+	case MENU_WAIT:
 		break;
 	case MENU_CALIBRATE:			
 		while(ModelN_Calib() != 0);
@@ -94,39 +100,60 @@ void ModelN_Menu(void)
 			ModelN_Menu_Set_State(MENU_SHOW_TEMP_SET);
 		}
 		break;
+	case MENU_THREAD:
+		thread_mode_handler();
+		
+		if(thread_mode_get_state() == THREAD_CONNECTING)
+		{
+			Disp_Flash(FLASH_ENABLE);
+		}
+		else
+		{
+			Disp_Flash(FLASH_DISABLE);
+		}
+		
+		if((thread_mode_get_state() == THREAD_OK) && (ModelN_Data_Received() == 1))
+		{
+			delay_ms(1500);
+			eState = MENU_SHOW_TIME;
+		}
+		break;
 	default: 
 		eState = MENU_INIT;
 		break;
 	}
 	
-	if(bySleep == 1 && byRunning == 0)
-	{	
-		if(iTempSet != 0)
+		if(!modeln_app_buf_available() && (byRecAction == 0))
 		{
-			iTempSet = 0;
-		}
-		byTimer++;
-		if(byTimer == MENU_CHANGE)
-		{
-			byTimer = 0;
-			if(eState < MENU_SHOW_HUMID)
+			if((eState > MENU_CALIBRATE) && (eState < MENU_THREAD))
 			{
-				eState++;
+				if(iTempSet != 0)
+				{
+					iTempSet = 0;
+				}
+				byTimer++;
+				if(byTimer == MENU_CHANGE)
+				{
+					byTimer = 0;
+					if(eState < MENU_SHOW_HUMID)
+					{
+						eState++;
+					}
+					else
+					{
+						eState = MENU_SHOW_TIME;
+					}
+					byTimer = 0;
+				}
 			}
-			else
-			{
-				eState = MENU_SHOW_TIME;
-			}
-			byTimer = 0;
+			
+			RTC_SetWakeUpCounter(2047);
+			RTC_WakeUpCmd(ENABLE);
+			
+			halt();
+			
+			RTC_WakeUpCmd(DISABLE);
 		}
-		
-		RTC_SetWakeUpCounter(2047);
-		RTC_WakeUpCmd(ENABLE);
-		
-		halt();
-		
-		RTC_WakeUpCmd(DISABLE);
-	}
 }
 
 void ModelN_Menu_Set_State(menu_t eNewState)
