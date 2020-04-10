@@ -80,16 +80,19 @@ void UI_Handler(void)
 	static uint8_t byNumber = 0, byNumberOld = 0;
 	
 	if(ModelN_get_init_state() == 0)
-	{		
+	{	
+		if(byRunning == 1)
+		{
 		if(wTimeout > 0)
-		{
-			wTimeout--;
-		}
-		
-		if(wTimeout == 0)
-		{
-			ModelN_Menu_Set_State(MENU_SHOW_TIME);
-			byRunning = 0;
+			{
+				wTimeout--;
+			}
+			
+			if(wTimeout == 0)
+			{
+				ModelN_Menu_Set_State(MENU_SHOW_TIME);
+				byRunning = 0;
+			}
 		}
 	
 		UI_Encoder_Check();	

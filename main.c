@@ -173,14 +173,14 @@ void main(void)
   {}
 	
 	/* Enable external low speed crystal for RTC */
-  CLK_RTCClockConfig(CLK_RTCCLKSource_LSE, CLK_RTCCLKDiv_1);
 	CLK_PeripheralClockConfig(CLK_Peripheral_RTC, ENABLE);
+  CLK_RTCClockConfig(CLK_RTCCLKSource_LSE, CLK_RTCCLKDiv_1);
 	
 	//RTC_RatioCmd(ENABLE);
 	//Calendar_Init();
 		
 	/* Configure WakeUp via RTC CLock */
-	RTC_WakeUpClockConfig(RTC_WakeUpClock_RTCCLK_Div16);
+	RTC_WakeUpClockConfig(RTC_WakeUpClock_RTCCLK_Div4);
 	
 	RTC_ITConfig(RTC_IT_WUT, ENABLE);
 	
@@ -236,8 +236,8 @@ void main(void)
 			//Disp_Number(3, byDbg++);
 			
 			ModelN_Cmd(modeln_app_get_buf());
-			ModelN_Send_Protocol();			
-		}
+			ModelN_Send_Protocol();
+		}		
 		
 		ModelN_Menu();
 		UI_Handler();

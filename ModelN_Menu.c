@@ -147,12 +147,13 @@ void ModelN_Menu(void)
 				}
 			}
 			
-			RTC_SetWakeUpCounter(2047);
+			RTC_SetWakeUpCounter(2048);
 			RTC_WakeUpCmd(ENABLE);
 			
 			halt();
 			
 			RTC_WakeUpCmd(DISABLE);
+			RTC_ClearITPendingBit( RTC_IT_WUT );
 		}
 }
 
