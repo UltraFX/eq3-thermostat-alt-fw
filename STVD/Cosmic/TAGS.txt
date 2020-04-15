@@ -276,12 +276,12 @@ ALRMAR4	..\..\stm8l_spl\inc\stm8l15x.h	350;"	member	struct:RTC_struct
 ALRMASSMSKR	..\..\stm8l_spl\inc\stm8l15x.h	356;"	member	struct:RTC_struct
 ALRMASSRH	..\..\stm8l_spl\inc\stm8l15x.h	354;"	member	struct:RTC_struct
 ALRMASSRL	..\..\stm8l_spl\inc\stm8l15x.h	355;"	member	struct:RTC_struct
-APP_ADC_Init	..\..\main.c	109;"	function	signature:(void)
-APP_LCD_Init	..\..\main.c	87;"	function	signature:(void)
-APP_TIM_Int_Handler	..\..\main.c	168;"	function	signature:(void)
-APP_TIM_Int_Handler	..\..\main.h	27;"	prototype	signature:(void)
-APP_Timer_Init	..\..\main.c	153;"	function	signature:(void)
-APP_UART_Init	..\..\main.c	133;"	function	signature:(void)
+APP_ADC_Init	..\..\main.c	68;"	function	signature:(void)
+APP_LCD_Init	..\..\main.c	63;"	function	signature:(void)
+APP_TIM_Int_Handler	..\..\main.c	126;"	function	signature:(void)
+APP_TIM_Int_Handler	..\..\main.h	29;"	prototype	signature:(void)
+APP_Timer_Init	..\..\main.c	111;"	function	signature:(void)
+APP_UART_Init	..\..\main.c	92;"	function	signature:(void)
 APRER	..\..\stm8l_spl\inc\stm8l15x.h	330;"	member	struct:RTC_struct
 AREA	..\..\stm8l_spl\inc\stm8l15x.h	3010;"	macro
 ARR	..\..\stm8l_spl\inc\stm8l15x.h	2150;"	member	struct:TIM4_struct
@@ -292,6 +292,14 @@ ARRL	..\..\stm8l_spl\inc\stm8l15x.h	1975;"	member	struct:TIM_struct
 ASCR1	..\..\stm8l_spl\inc\stm8l15x.h	1478;"	member	struct:RI_struct
 ASCR2	..\..\stm8l_spl\inc\stm8l15x.h	1479;"	member	struct:RI_struct
 AffBit	..\..\stm8l_spl\inc\stm8l15x.h	2984;"	macro
+BC_BARS	..\..\modeln_app.h	13;"	macro
+BC_CUR_TEMP	..\..\modeln_app.h	8;"	macro
+BC_DATE	..\..\modeln_app.h	6;"	macro
+BC_HUMID	..\..\modeln_app.h	11;"	macro
+BC_OUT_TEMP	..\..\modeln_app.h	10;"	macro
+BC_SET_TEMP	..\..\modeln_app.h	9;"	macro
+BC_SIGNAL	..\..\modeln_app.h	12;"	macro
+BC_TIME	..\..\modeln_app.h	7;"	macro
 BEEP	..\..\stm8l_spl\inc\stm8l15x.h	2866;"	macro
 BEEP_BASE	..\..\stm8l_spl\inc\stm8l15x.h	2816;"	macro
 BEEP_CALIBRATION_DEFAULT	..\..\stm8l_spl\inc\stm8l15x_beep.h	75;"	macro
@@ -323,10 +331,11 @@ BKR	..\..\stm8l_spl\inc\stm8l15x.h	1980;"	member	struct:TIM_struct
 BOR	..\..\stm8l_spl\inc\stm8l15x.h	1368;"	member	struct:OPT_struct
 BRR1	..\..\stm8l_spl\inc\stm8l15x.h	2225;"	member	struct:USART_struct
 BRR2	..\..\stm8l_spl\inc\stm8l15x.h	2226;"	member	struct:USART_struct
+BUF_SIZE	..\..\modeln_app.h	4;"	macro
 BUTTON0	..\..\user_interface.h	4;"	macro
 BUTTON1	..\..\user_interface.h	5;"	macro
 BUTTON2	..\..\user_interface.h	6;"	macro
-BUT_TIMEOUT	..\..\main.h	17;"	macro
+BUT_TIMEOUT	..\..\main.h	18;"	macro
 BYTE_0	..\..\stm8l_spl\inc\stm8l15x.h	2991;"	macro
 BYTE_1	..\..\stm8l_spl\inc\stm8l15x.h	2992;"	macro
 BYTE_2	..\..\stm8l_spl\inc\stm8l15x.h	2993;"	macro
@@ -641,6 +650,14 @@ CLK_struct	..\..\stm8l_spl\inc\stm8l15x.h	731;"	struct
 CM0ARH	..\..\stm8l_spl\inc\stm8l15x.h	2554;"	member	struct:DMA_Channel_struct
 CM0ARL	..\..\stm8l_spl\inc\stm8l15x.h	2555;"	member	struct:DMA_Channel_struct
 CM0EAR	..\..\stm8l_spl\inc\stm8l15x.h	2553;"	member	struct:DMA_Channel_struct
+CMD_ACK	..\..\modeln_app.h	46;"	enumerator	enum:command
+CMD_CALIBRATE	..\..\modeln_app.h	44;"	enumerator	enum:command
+CMD_DATA	..\..\modeln_app.h	40;"	enumerator	enum:command
+CMD_DISPLAY	..\..\modeln_app.h	39;"	enumerator	enum:command
+CMD_ERR	..\..\modeln_app.h	47;"	enumerator	enum:command
+CMD_MODE	..\..\modeln_app.h	41;"	enumerator	enum:command
+CMD_MOTOR	..\..\modeln_app.h	43;"	enumerator	enum:command
+CMD_STATE	..\..\modeln_app.h	42;"	enumerator	enum:command
 CNBTR	..\..\stm8l_spl\inc\stm8l15x.h	2550;"	member	struct:DMA_Channel_struct
 CNTR	..\..\stm8l_spl\inc\stm8l15x.h	2148;"	member	struct:TIM4_struct
 CNTRH	..\..\stm8l_spl\inc\stm8l15x.h	1738;"	member	struct:TIM1_struct
@@ -817,7 +834,7 @@ CSSLSE_CSR_SWITCHF	..\..\stm8l_spl\inc\stm8l15x.h	589;"	macro
 CSSLSE_TypeDef	..\..\stm8l_spl\inc\stm8l15x.h	573;"	typedef	typeref:struct:CSSLSE_struct
 CSSLSE_struct	..\..\stm8l_spl\inc\stm8l15x.h	569;"	struct
 CSSR	..\..\stm8l_spl\inc\stm8l15x.h	743;"	member	struct:CLK_struct
-Calendar_Init	..\..\main.c	66;"	function	signature:(void)
+Calendar_Init	..\..\modeln_app.c	69;"	function	signature:(void)
 ChgBit	..\..\stm8l_spl\inc\stm8l15x.h	2983;"	macro
 ClrBit	..\..\stm8l_spl\inc\stm8l15x.h	2981;"	macro
 DAC	..\..\stm8l_spl\inc\stm8l15x.h	2881;"	macro
@@ -1109,32 +1126,36 @@ DRH	..\..\stm8l_spl\inc\stm8l15x.h	2318;"	member	struct:ADC_struct
 DRL	..\..\stm8l_spl\inc\stm8l15x.h	2319;"	member	struct:ADC_struct
 DTR	..\..\stm8l_spl\inc\stm8l15x.h	1754;"	member	struct:TIM1_struct
 DUKR	..\..\stm8l_spl\inc\stm8l15x.h	1026;"	member	struct:FLASH_struct
-Disp_Bargraph	..\..\modeln_display_driver.c	150;"	function	signature:(uint32_t dwNumber)
-Disp_Bargraph	..\..\modeln_display_driver.h	23;"	prototype	signature:(uint32_t dwNumber)
+Disp_Bargraph	..\..\modeln_display_driver.c	185;"	function	signature:(uint32_t dwNumber)
+Disp_Bargraph	..\..\modeln_display_driver.h	35;"	prototype	signature:(uint32_t dwNumber)
 Disp_Bargraph_number	..\..\modeln_display_driver.c	94;"	function	signature:(uint8_t byNumber)
-Disp_Bargraph_number	..\..\modeln_display_driver.h	30;"	prototype	signature:(uint8_t byNumber)
-Disp_Character	..\..\modeln_display_driver.c	272;"	function	signature:(uint8_t bySegment, char cChar)
-Disp_Character	..\..\modeln_display_driver.h	46;"	prototype	signature:(uint8_t bySegment, char cChar)
+Disp_Bargraph_number	..\..\modeln_display_driver.h	42;"	prototype	signature:(uint8_t byNumber)
+Disp_Character	..\..\modeln_display_driver.c	307;"	function	signature:(uint8_t bySegment, char cChar)
+Disp_Character	..\..\modeln_display_driver.h	58;"	prototype	signature:(uint8_t bySegment, char cChar)
 Disp_Clear	..\..\modeln_display_driver.c	84;"	function	signature:(void)
-Disp_Clear	..\..\modeln_display_driver.h	16;"	prototype	signature:(void)
-Disp_Date	..\..\modeln_display_driver.c	397;"	function	signature:(uint8_t byDate)
-Disp_Date	..\..\modeln_display_driver.h	75;"	prototype	signature:(uint8_t byDate)
-Disp_Decpoint	..\..\modeln_display_driver.c	366;"	function	signature:(uint8_t byDigit, uint8_t byState)
-Disp_Decpoint	..\..\modeln_display_driver.h	68;"	prototype	signature:(uint8_t byDigit, uint8_t byState)
-Disp_Doublepoint	..\..\modeln_display_driver.c	354;"	function	signature:(uint8_t byState)
-Disp_Doublepoint	..\..\modeln_display_driver.h	60;"	prototype	signature:(uint8_t byState)
-Disp_Number	..\..\modeln_display_driver.c	178;"	function	signature:(uint8_t bySegment, uint8_t byNumber)
-Disp_Number	..\..\modeln_display_driver.h	38;"	prototype	signature:(uint8_t bySegment, uint8_t byNumber)
-Disp_Symbol	..\..\modeln_display_driver.c	414;"	function	signature:(uint8_t bySymbol, uint8_t byState)
-Disp_Symbol	..\..\modeln_display_driver.h	83;"	prototype	signature:(uint8_t bySymbol, uint8_t byState)
-Disp_Time_Grid	..\..\modeln_display_driver.c	342;"	function	signature:(uint8_t byState)
-Disp_Time_Grid	..\..\modeln_display_driver.h	53;"	prototype	signature:(uint8_t byState)
-Display_Humidity	..\..\modeln_app.c	181;"	function	signature:(void)
-Display_Humidity	..\..\modeln_app.h	29;"	prototype	signature:(void)
-Display_Temperature	..\..\modeln_app.c	135;"	function	signature:(uint8_t byTemp)
-Display_Temperature	..\..\modeln_app.h	26;"	prototype	signature:(uint8_t byTemp)
-Display_Time	..\..\modeln_app.c	125;"	function	signature:(void)
-Display_Time	..\..\modeln_app.h	17;"	prototype	signature:(void)
+Disp_Clear	..\..\modeln_display_driver.h	28;"	prototype	signature:(void)
+Disp_Date	..\..\modeln_display_driver.c	493;"	function	signature:(uint8_t byDate)
+Disp_Date	..\..\modeln_display_driver.h	87;"	prototype	signature:(uint8_t byDate)
+Disp_Decpoint	..\..\modeln_display_driver.c	462;"	function	signature:(uint8_t byDigit, uint8_t byState)
+Disp_Decpoint	..\..\modeln_display_driver.h	80;"	prototype	signature:(uint8_t byDigit, uint8_t byState)
+Disp_Doublepoint	..\..\modeln_display_driver.c	450;"	function	signature:(uint8_t byState)
+Disp_Doublepoint	..\..\modeln_display_driver.h	72;"	prototype	signature:(uint8_t byState)
+Disp_Flash	..\..\modeln_display_driver.c	173;"	function	signature:(uint8_t byMode)
+Disp_Flash	..\..\modeln_display_driver.h	25;"	prototype	signature:(uint8_t byMode)
+Disp_Init	..\..\modeln_display_driver.c	150;"	function	signature:(void)
+Disp_Init	..\..\modeln_display_driver.h	19;"	prototype	signature:(void)
+Disp_Number	..\..\modeln_display_driver.c	213;"	function	signature:(uint8_t bySegment, uint8_t byNumber)
+Disp_Number	..\..\modeln_display_driver.h	50;"	prototype	signature:(uint8_t bySegment, uint8_t byNumber)
+Disp_Symbol	..\..\modeln_display_driver.c	510;"	function	signature:(uint8_t bySymbol, uint8_t byState)
+Disp_Symbol	..\..\modeln_display_driver.h	95;"	prototype	signature:(uint8_t bySymbol, uint8_t byState)
+Disp_Time_Grid	..\..\modeln_display_driver.c	438;"	function	signature:(uint8_t byState)
+Disp_Time_Grid	..\..\modeln_display_driver.h	65;"	prototype	signature:(uint8_t byState)
+Display_Humidity	..\..\modeln_app.c	357;"	function	signature:(void)
+Display_Humidity	..\..\modeln_app.h	91;"	prototype	signature:(void)
+Display_Temperature	..\..\modeln_app.c	312;"	function	signature:(uint8_t byTemp)
+Display_Temperature	..\..\modeln_app.h	88;"	prototype	signature:(uint8_t byTemp)
+Display_Time	..\..\modeln_app.c	302;"	function	signature:(void)
+Display_Time	..\..\modeln_app.h	79;"	prototype	signature:(void)
 ECKCR	..\..\stm8l_spl\inc\stm8l15x.h	739;"	member	struct:CLK_struct
 EEPROM	..\..\stm8l_spl\inc\stm8l15x.h	134;"	macro
 EEPROM	..\..\stm8l_spl\inc\stm8l15x.h	140;"	macro
@@ -1306,10 +1327,12 @@ FLASH_DATA_EEPROM_END_PHYSICAL_ADDRESS	..\..\stm8l_spl\inc\stm8l15x_flash.h	55;"
 FLASH_DATA_EEPROM_END_PHYSICAL_ADDRESS	..\..\stm8l_spl\inc\stm8l15x_flash.h	64;"	macro
 FLASH_DATA_EEPROM_END_PHYSICAL_ADDRESS	..\..\stm8l_spl\inc\stm8l15x_flash.h	73;"	macro
 FLASH_DATA_EEPROM_START_PHYSICAL_ADDRESS	..\..\stm8l_spl\inc\stm8l15x_flash.h	50;"	macro
+FLASH_DISABLE	..\..\modeln_display_driver.h	16;"	macro
 FLASH_DUKR_DUK	..\..\stm8l_spl\inc\stm8l15x.h	1067;"	macro
 FLASH_DUKR_RESET_VALUE	..\..\stm8l_spl\inc\stm8l15x.h	1037;"	macro
 FLASH_DeInit	..\..\stm8l_spl\inc\stm8l15x_flash.h	304;"	prototype	signature:(void)
 FLASH_DeInit	..\..\stm8l_spl\src\stm8l15x_flash.c	259;"	function	signature:(void)
+FLASH_ENABLE	..\..\modeln_display_driver.h	15;"	macro
 FLASH_EraseByte	..\..\stm8l_spl\inc\stm8l15x_flash.h	308;"	prototype	signature:(uint32_t Address)
 FLASH_EraseByte	..\..\stm8l_spl\src\stm8l15x_flash.c	331;"	function	signature:(uint32_t Address)
 FLASH_EraseOptionByte	..\..\stm8l_spl\inc\stm8l15x_flash.h	317;"	prototype	signature:(uint16_t Address)
@@ -1738,7 +1761,7 @@ IER	..\..\stm8l_spl\inc\stm8l15x.h	1728;"	member	struct:TIM1_struct
 IER	..\..\stm8l_spl\inc\stm8l15x.h	1964;"	member	struct:TIM_struct
 IER	..\..\stm8l_spl\inc\stm8l15x.h	2145;"	member	struct:TIM4_struct
 INITF_TIMEOUT	..\..\stm8l_spl\src\stm8l15x_rtc.c	159;"	macro	file:
-INIT_ENTRANCE	..\..\main.h	20;"	macro
+INIT_ENTRANCE	..\..\main.h	21;"	macro
 INIT_TIMEOUT	..\..\stm8l_spl\src\stm8l15x_rtc.c	157;"	macro	file:
 INTERRUPT	..\..\stm8l_spl\inc\stm8l15x.h	2961;"	macro
 INTERRUPT	..\..\stm8l_spl\inc\stm8l15x.h	2963;"	macro
@@ -2230,12 +2253,12 @@ IWDG_WriteAccess_Enable	..\..\stm8l_spl\inc\stm8l15x_iwdg.h	83;"	enumerator	enum
 IWDG_WriteAccess_TypeDef	..\..\stm8l_spl\inc\stm8l15x_iwdg.h	85;"	typedef	typeref:enum:__anon91
 IWDG_struct	..\..\stm8l_spl\inc\stm8l15x.h	1263;"	struct
 KR	..\..\stm8l_spl\inc\stm8l15x.h	1265;"	member	struct:IWDG_struct
-Key0	..\..\user_interface.c	11;"	member	struct:__anon1	file:
-Key0	..\..\user_interface.c	18;"	member	struct:__anon2	file:
-Key1	..\..\user_interface.c	12;"	member	struct:__anon1	file:
-Key1	..\..\user_interface.c	19;"	member	struct:__anon2	file:
-Key2	..\..\user_interface.c	13;"	member	struct:__anon1	file:
-Key2	..\..\user_interface.c	20;"	member	struct:__anon2	file:
+Key0	..\..\user_interface.c	19;"	member	struct:__anon1	file:
+Key0	..\..\user_interface.c	26;"	member	struct:__anon2	file:
+Key1	..\..\user_interface.c	20;"	member	struct:__anon1	file:
+Key1	..\..\user_interface.c	27;"	member	struct:__anon2	file:
+Key2	..\..\user_interface.c	21;"	member	struct:__anon1	file:
+Key2	..\..\user_interface.c	28;"	member	struct:__anon2	file:
 LCD	..\..\stm8l_spl\inc\stm8l15x.h	2873;"	macro
 LCD_AES_IRQHandler	..\..\stm8l15x_it.h	61;"	prototype	signature:(void)
 LCD_BASE	..\..\stm8l_spl\inc\stm8l15x.h	2834;"	macro
@@ -2438,20 +2461,26 @@ LTRL	..\..\stm8l_spl\inc\stm8l15x.h	2323;"	member	struct:ADC_struct
 MAIN_H	..\..\main.h	2;"	macro
 MEMCPY	..\..\stm8l_spl\inc\stm8l15x.h	145;"	macro
 MEMCPY	..\..\stm8l_spl\inc\stm8l15x.h	148;"	macro
-MENU_BLINK	..\..\main.h	16;"	macro
-MENU_CALIBRATE	..\..\modeln_menu.h	6;"	enumerator	enum:__anon4
-MENU_CHANGE	..\..\main.h	15;"	macro
+MENU_BLINK	..\..\main.h	17;"	macro
+MENU_CALIBRATE	..\..\modeln_menu.h	7;"	enumerator	enum:__anon4
+MENU_CHANGE	..\..\main.h	16;"	macro
 MENU_INIT	..\..\modeln_menu.h	5;"	enumerator	enum:__anon4
-MENU_SET_TEMP	..\..\modeln_menu.h	12;"	enumerator	enum:__anon4
-MENU_SHOW_HUMID	..\..\modeln_menu.h	11;"	enumerator	enum:__anon4
-MENU_SHOW_TEMP_CUR	..\..\modeln_menu.h	8;"	enumerator	enum:__anon4
-MENU_SHOW_TEMP_OUT	..\..\modeln_menu.h	10;"	enumerator	enum:__anon4
-MENU_SHOW_TEMP_SET	..\..\modeln_menu.h	9;"	enumerator	enum:__anon4
-MENU_SHOW_TIME	..\..\modeln_menu.h	7;"	enumerator	enum:__anon4
+MENU_SET_TEMP	..\..\modeln_menu.h	13;"	enumerator	enum:__anon4
+MENU_SHOW_HUMID	..\..\modeln_menu.h	12;"	enumerator	enum:__anon4
+MENU_SHOW_TEMP_CUR	..\..\modeln_menu.h	9;"	enumerator	enum:__anon4
+MENU_SHOW_TEMP_OUT	..\..\modeln_menu.h	11;"	enumerator	enum:__anon4
+MENU_SHOW_TEMP_SET	..\..\modeln_menu.h	10;"	enumerator	enum:__anon4
+MENU_SHOW_TIME	..\..\modeln_menu.h	8;"	enumerator	enum:__anon4
+MENU_THREAD	..\..\modeln_menu.h	14;"	enumerator	enum:__anon4
+MENU_WAIT	..\..\modeln_menu.h	6;"	enumerator	enum:__anon4
 MODELN_APP_H	..\..\modeln_app.h	2;"	macro
 MODELN_DISPLAY_DRIVER	..\..\modeln_display_driver.h	2;"	macro
 MODELN_MENU_H	..\..\modeln_menu.h	2;"	macro
 MODEL_N_CONTROL_H	..\..\modeln_control.h	2;"	macro
+MODE_BT	..\..\modeln_app.h	53;"	enumerator	enum:mode
+MODE_CAN	..\..\modeln_app.h	54;"	enumerator	enum:mode
+MODE_THREAD	..\..\modeln_app.h	52;"	enumerator	enum:mode
+MODE_WIFI	..\..\modeln_app.h	55;"	enumerator	enum:mode
 MOTOR_CMD_BACKWARD	..\..\modeln_control.h	12;"	macro
 MOTOR_CMD_FORWARD	..\..\modeln_control.h	11;"	macro
 MOTOR_CMD_STOP	..\..\modeln_control.h	10;"	macro
@@ -2459,22 +2488,24 @@ MemoryAddressCast	..\..\stm8l_spl\inc\stm8l15x.h	167;"	macro
 MemoryAddressCast	..\..\stm8l_spl\inc\stm8l15x.h	171;"	macro
 ModelN_Calib	..\..\modeln_control.c	43;"	function	signature:(void)
 ModelN_Calib	..\..\modeln_control.h	29;"	prototype	signature:(void)
-ModelN_Cmd	..\..\modeln_app.c	87;"	function	signature:(void)
-ModelN_Cmd	..\..\modeln_app.h	11;"	prototype	signature:(void)
+ModelN_Cmd	..\..\modeln_app.c	208;"	function	signature:(protocol_t *psProt)
+ModelN_Cmd	..\..\modeln_app.h	70;"	prototype	signature:(protocol_t *psProt)
+ModelN_Data_Received	..\..\modeln_app.c	297;"	function	signature:(void)
+ModelN_Data_Received	..\..\modeln_app.h	76;"	prototype	signature:(void)
 ModelN_Get_EndPos	..\..\modeln_control.c	10;"	prototype	file:	signature:(void)
 ModelN_Get_EndPos	..\..\modeln_control.c	196;"	function	signature:(void)
-ModelN_Init	..\..\modeln_app.c	111;"	function	signature:(void)
-ModelN_Init	..\..\modeln_app.h	14;"	prototype	signature:(void)
+ModelN_Init	..\..\modeln_app.c	280;"	function	signature:(void)
+ModelN_Init	..\..\modeln_app.h	73;"	prototype	signature:(void)
 ModelN_Menu	..\..\modeln_menu.c	5;"	function	signature:(void)
-ModelN_Menu	..\..\modeln_menu.h	16;"	prototype	signature:(void)
-ModelN_Menu_Get_State	..\..\modeln_menu.c	137;"	function	signature:(void)
-ModelN_Menu_Get_State	..\..\modeln_menu.h	30;"	prototype	signature:(void)
-ModelN_Menu_Set_State	..\..\modeln_menu.c	132;"	function	signature:(menu_t eNewState)
-ModelN_Menu_Set_State	..\..\modeln_menu.h	23;"	prototype	signature:(menu_t eNewState)
+ModelN_Menu	..\..\modeln_menu.h	18;"	prototype	signature:(void)
+ModelN_Menu_Get_State	..\..\modeln_menu.c	166;"	function	signature:(void)
+ModelN_Menu_Get_State	..\..\modeln_menu.h	32;"	prototype	signature:(void)
+ModelN_Menu_Set_State	..\..\modeln_menu.c	161;"	function	signature:(menu_t eNewState)
+ModelN_Menu_Set_State	..\..\modeln_menu.h	25;"	prototype	signature:(menu_t eNewState)
 ModelN_Motor_Cmd	..\..\modeln_control.c	177;"	function	signature:(uint8_t byCmd)
 ModelN_Motor_Cmd	..\..\modeln_control.h	32;"	prototype	signature:(uint8_t byCmd)
-ModelN_Send_Protocol	..\..\modeln_app.c	70;"	function	signature:(void)
-ModelN_Send_Protocol	..\..\modeln_app.h	8;"	prototype	signature:(void)
+ModelN_Send_Protocol	..\..\modeln_app.c	191;"	function	signature:(void)
+ModelN_Send_Protocol	..\..\modeln_app.h	67;"	prototype	signature:(void)
 ModelN_Set_Pos	..\..\modeln_control.c	108;"	function	signature:(uint8_t byPercent)
 ModelN_Set_Pos	..\..\modeln_control.h	30;"	prototype	signature:(uint8_t byPercent)
 ModelN_Timer_Control	..\..\modeln_control.c	155;"	function	signature:(uint8_t byControl)
@@ -2489,9 +2520,9 @@ ModelN_Timer_Read	..\..\modeln_control.c	172;"	function	signature:(void)
 ModelN_Timer_Read	..\..\modeln_control.h	27;"	prototype	signature:(void)
 ModelN_Timer_Reset	..\..\modeln_control.c	167;"	function	signature:(void)
 ModelN_Timer_Reset	..\..\modeln_control.h	26;"	prototype	signature:(void)
-ModelN_Update_Data	..\..\modeln_app.c	44;"	function	signature:(void)
-ModelN_Update_Data	..\..\modeln_app.h	5;"	prototype	signature:(void)
-Motor_Command	..\..\main.h	26;"	prototype	signature:(uint8_t byCmd)
+ModelN_get_init_state	..\..\modeln_app.c	383;"	function	signature:(void)
+ModelN_get_init_state	..\..\modeln_app.h	94;"	prototype	signature:(void)
+Motor_Command	..\..\main.h	28;"	prototype	signature:(uint8_t byCmd)
 MskBit	..\..\stm8l_spl\inc\stm8l15x.h	2987;"	macro
 NEAR	..\..\stm8l_spl\inc\stm8l15x.h	132;"	macro
 NEAR	..\..\stm8l_spl\inc\stm8l15x.h	138;"	macro
@@ -2518,7 +2549,7 @@ PCODESIZE	..\..\stm8l_spl\inc\stm8l15x.h	1365;"	member	struct:OPT_struct
 PECR	..\..\stm8l_spl\inc\stm8l15x.h	1095;"	member	struct:I2C_struct
 PM	..\..\stm8l_spl\inc\stm8l15x.h	2687;"	member	struct:LCD_struct
 PR	..\..\stm8l_spl\inc\stm8l15x.h	1266;"	member	struct:IWDG_struct
-PROT_NUM_BYTES	..\..\main.h	30;"	macro
+PROT_NUM_BYTES	..\..\main.h	32;"	macro
 PSCR	..\..\stm8l_spl\inc\stm8l15x.h	1973;"	member	struct:TIM_struct
 PSCR	..\..\stm8l_spl\inc\stm8l15x.h	2149;"	member	struct:TIM4_struct
 PSCR	..\..\stm8l_spl\inc\stm8l15x.h	2233;"	member	struct:USART_struct
@@ -2908,7 +2939,6 @@ RTC_AlarmMask_Minutes	..\..\stm8l_spl\inc\stm8l15x_rtc.h	140;"	enumerator	enum:_
 RTC_AlarmMask_None	..\..\stm8l_spl\inc\stm8l15x_rtc.h	138;"	enumerator	enum:__anon114
 RTC_AlarmMask_Seconds	..\..\stm8l_spl\inc\stm8l15x_rtc.h	139;"	enumerator	enum:__anon114
 RTC_AlarmMask_TypeDef	..\..\stm8l_spl\inc\stm8l15x_rtc.h	145;"	typedef	typeref:enum:__anon114
-RTC_AlarmStr	..\..\main.c	56;"	variable
 RTC_AlarmStructInit	..\..\stm8l_spl\inc\stm8l15x_rtc.h	896;"	prototype	signature:(RTC_AlarmTypeDef* RTC_AlarmStruct)
 RTC_AlarmStructInit	..\..\stm8l_spl\src\stm8l15x_rtc.c	1165;"	function	signature:(RTC_AlarmTypeDef* RTC_AlarmStruct)
 RTC_AlarmSubSecondConfig	..\..\stm8l_spl\inc\stm8l15x_rtc.h	899;"	prototype	signature:(uint16_t RTC_AlarmSubSecondValue, RTC_AlarmSubSecondMask_TypeDef RTC_AlarmSubSecondMask)
@@ -2986,7 +3016,7 @@ RTC_DR3_RESET_VALUE	..\..\stm8l_spl\inc\stm8l15x.h	377;"	macro
 RTC_DR3_YT	..\..\stm8l_spl\inc\stm8l15x.h	444;"	macro
 RTC_DR3_YU	..\..\stm8l_spl\inc\stm8l15x.h	445;"	macro
 RTC_Date	..\..\stm8l_spl\inc\stm8l15x_rtc.h	531;"	member	struct:__anon136
-RTC_DateStr	..\..\main.c	55;"	variable
+RTC_DateStr	..\..\modeln_app.c	17;"	variable	file:
 RTC_DateStructInit	..\..\stm8l_spl\inc\stm8l15x_rtc.h	891;"	prototype	signature:(RTC_DateTypeDef* RTC_DateStruct)
 RTC_DateStructInit	..\..\stm8l_spl\src\stm8l15x_rtc.c	968;"	function	signature:(RTC_DateTypeDef* RTC_DateStruct)
 RTC_DateTypeDef	..\..\stm8l_spl\inc\stm8l15x_rtc.h	543;"	typedef	typeref:struct:__anon136
@@ -3067,7 +3097,7 @@ RTC_IT_TypeDef	..\..\stm8l_spl\inc\stm8l15x_rtc.h	323;"	typedef	typeref:enum:__a
 RTC_IT_WUT	..\..\stm8l_spl\inc\stm8l15x_rtc.h	319;"	enumerator	enum:__anon124
 RTC_Init	..\..\stm8l_spl\inc\stm8l15x_rtc.h	876;"	prototype	signature:(RTC_InitTypeDef* RTC_InitStruct)
 RTC_Init	..\..\stm8l_spl\src\stm8l15x_rtc.c	359;"	function	signature:(RTC_InitTypeDef* RTC_InitStruct)
-RTC_InitStr	..\..\main.c	53;"	variable
+RTC_InitStr	..\..\modeln_app.c	15;"	variable	file:
 RTC_InitTypeDef	..\..\stm8l_spl\inc\stm8l15x_rtc.h	487;"	typedef	typeref:struct:__anon134
 RTC_Minutes	..\..\stm8l_spl\inc\stm8l15x_rtc.h	508;"	member	struct:__anon135
 RTC_Month	..\..\stm8l_spl\inc\stm8l15x_rtc.h	529;"	member	struct:__anon136
@@ -3194,7 +3224,7 @@ RTC_Tamper_1	..\..\stm8l_spl\inc\stm8l15x_rtc.h	362;"	enumerator	enum:__anon127
 RTC_Tamper_2	..\..\stm8l_spl\inc\stm8l15x_rtc.h	363;"	enumerator	enum:__anon127
 RTC_Tamper_3	..\..\stm8l_spl\inc\stm8l15x_rtc.h	364;"	enumerator	enum:__anon127
 RTC_Tamper_TypeDef	..\..\stm8l_spl\inc\stm8l15x_rtc.h	366;"	typedef	typeref:enum:__anon127
-RTC_TimeStr	..\..\main.c	54;"	variable
+RTC_TimeStr	..\..\modeln_app.c	16;"	variable	file:
 RTC_TimeStructInit	..\..\stm8l_spl\inc\stm8l15x_rtc.h	887;"	prototype	signature:(RTC_TimeTypeDef* RTC_TimeStruct)
 RTC_TimeStructInit	..\..\stm8l_spl\src\stm8l15x_rtc.c	775;"	function	signature:(RTC_TimeTypeDef* RTC_TimeStruct)
 RTC_TimeTypeDef	..\..\stm8l_spl\inc\stm8l15x_rtc.h	520;"	typedef	typeref:struct:__anon135
@@ -3462,11 +3492,18 @@ SYSDivFactor	..\..\stm8l_spl\src\stm8l15x_clk.c	74;"	variable
 SetBit	..\..\stm8l_spl\inc\stm8l15x.h	2980;"	macro
 TCR1	..\..\stm8l_spl\inc\stm8l15x.h	363;"	member	struct:RTC_struct
 TCR2	..\..\stm8l_spl\inc\stm8l15x.h	364;"	member	struct:RTC_struct
-TEMP_CURRENT	..\..\main.h	11;"	macro
-TEMP_OUTSIDE	..\..\main.h	13;"	macro
-TEMP_SET	..\..\main.h	12;"	macro
+TEMP_CURRENT	..\..\main.h	12;"	macro
+TEMP_OUTSIDE	..\..\main.h	14;"	macro
+TEMP_SET	..\..\main.h	13;"	macro
 TEN_VALUE_BCD	..\..\stm8l_spl\src\stm8l15x_rtc.c	165;"	macro	file:
 TEN_VALUE_BIN	..\..\stm8l_spl\src\stm8l15x_rtc.c	166;"	macro	file:
+THREAD_CONNECTING	..\..\thread_mode.h	7;"	enumerator	enum:thread_state
+THREAD_ERROR	..\..\thread_mode.h	11;"	enumerator	enum:thread_state
+THREAD_INIT	..\..\thread_mode.h	6;"	enumerator	enum:thread_state
+THREAD_JOINING	..\..\thread_mode.h	9;"	enumerator	enum:thread_state
+THREAD_MODE_H	..\..\thread_mode.h	2;"	macro
+THREAD_NO_CON	..\..\thread_mode.h	8;"	enumerator	enum:thread_state
+THREAD_OK	..\..\thread_mode.h	10;"	enumerator	enum:thread_state
 TI1_Config	..\..\stm8l_spl\src\stm8l15x_tim1.c	127;"	prototype	file:	signature:(uint8_t TIM1_ICPolarity, uint8_t TIM1_ICSelection, uint8_t TIM1_ICFilter)
 TI1_Config	..\..\stm8l_spl\src\stm8l15x_tim1.c	2623;"	function	file:	signature:(uint8_t TIM1_ICPolarity, uint8_t TIM1_ICSelection, uint8_t TIM1_ICFilter)
 TI1_Config	..\..\stm8l_spl\src\stm8l15x_tim2.c	120;"	prototype	file:	signature:(TIM2_ICPolarity_TypeDef TIM2_ICPolarity, TIM2_ICSelection_TypeDef TIM2_ICSelection, uint8_t TIM2_ICFilter)
@@ -5008,28 +5045,30 @@ TXCRCR	..\..\stm8l_spl\inc\stm8l15x.h	1658;"	member	struct:SPI_struct
 U16_MAX	..\..\stm8l_spl\inc\stm8l15x.h	254;"	macro
 U32_MAX	..\..\stm8l_spl\inc\stm8l15x.h	257;"	macro
 U8_MAX	..\..\stm8l_spl\inc\stm8l15x.h	251;"	macro
-UART_TIMEOUT	..\..\main.h	18;"	macro
+UART_TIMEOUT	..\..\main.h	19;"	macro
 UBC	..\..\stm8l_spl\inc\stm8l15x.h	1360;"	member	struct:OPT_struct
-UI_Buttons_Check	..\..\user_interface.c	210;"	function	file:	signature:(void)
-UI_Buttons_Check	..\..\user_interface.c	39;"	prototype	file:	signature:(void)
-UI_Buttons_Debounce	..\..\user_interface.c	189;"	function	file:	signature:(void)
-UI_Buttons_Debounce	..\..\user_interface.c	33;"	prototype	file:	signature:(void)
-UI_Buttons_Get	..\..\user_interface.c	155;"	function	signature:(uint8_t byButton)
-UI_Buttons_Get	..\..\user_interface.h	39;"	prototype	signature:(uint8_t byButton)
-UI_Buttons_Init	..\..\user_interface.c	46;"	function	signature:(void)
+UI_Buttons_Check	..\..\user_interface.c	260;"	function	file:	signature:(void)
+UI_Buttons_Check	..\..\user_interface.c	47;"	prototype	file:	signature:(void)
+UI_Buttons_Debounce	..\..\user_interface.c	239;"	function	file:	signature:(void)
+UI_Buttons_Debounce	..\..\user_interface.c	41;"	prototype	file:	signature:(void)
+UI_Buttons_Get	..\..\user_interface.c	205;"	function	signature:(uint8_t byButton)
+UI_Buttons_Get	..\..\user_interface.h	41;"	prototype	signature:(uint8_t byButton)
+UI_Buttons_Init	..\..\user_interface.c	54;"	function	signature:(void)
 UI_Buttons_Init	..\..\user_interface.h	11;"	prototype	signature:(void)
-UI_Buttons_Read	..\..\user_interface.c	252;"	function	file:	signature:(void)
-UI_Buttons_Read	..\..\user_interface.c	44;"	prototype	file:	signature:(void)
-UI_Encoder_Check	..\..\user_interface.c	128;"	function	file:	signature:(void)
-UI_Encoder_Check	..\..\user_interface.c	26;"	prototype	file:	signature:(void)
-UI_Encoder_Read	..\..\user_interface.c	144;"	function	signature:(void)
-UI_Encoder_Read	..\..\user_interface.h	31;"	prototype	signature:(void)
-UI_Handler	..\..\user_interface.c	69;"	function	signature:(void)
-UI_Handler	..\..\user_interface.h	14;"	prototype	signature:(void)
-UI_Int_Handler	..\..\user_interface.c	62;"	function	signature:(uint8_t byButton)
-UI_Int_Handler	..\..\user_interface.h	21;"	prototype	signature:(uint8_t byButton)
-UI_Timeout_Reset	..\..\user_interface.c	122;"	function	signature:(void)
-UI_Timeout_Reset	..\..\user_interface.h	24;"	prototype	signature:(void)
+UI_Buttons_Read	..\..\user_interface.c	302;"	function	file:	signature:(void)
+UI_Buttons_Read	..\..\user_interface.c	52;"	prototype	file:	signature:(void)
+UI_Disp_Init	..\..\user_interface.c	145;"	function	signature:(void)
+UI_Disp_Init	..\..\user_interface.h	44;"	prototype	signature:(void)
+UI_Encoder_Check	..\..\user_interface.c	178;"	function	file:	signature:(void)
+UI_Encoder_Check	..\..\user_interface.c	34;"	prototype	file:	signature:(void)
+UI_Encoder_Read	..\..\user_interface.c	194;"	function	signature:(void)
+UI_Encoder_Read	..\..\user_interface.h	33;"	prototype	signature:(void)
+UI_Handler	..\..\user_interface.c	77;"	function	signature:(void)
+UI_Handler	..\..\user_interface.h	16;"	prototype	signature:(void)
+UI_Int_Handler	..\..\user_interface.c	70;"	function	signature:(uint8_t byButton)
+UI_Int_Handler	..\..\user_interface.h	23;"	prototype	signature:(uint8_t byButton)
+UI_Timeout_Reset	..\..\user_interface.c	140;"	function	signature:(void)
+UI_Timeout_Reset	..\..\user_interface.h	26;"	prototype	signature:(void)
 USART1	..\..\stm8l_spl\inc\stm8l15x.h	2870;"	macro
 USART1_BASE	..\..\stm8l_spl\inc\stm8l15x.h	2822;"	macro
 USART1_RX_IRQn	..\..\stm8l_spl\inc\stm8l15x_itc.h	81;"	enumerator	enum:__anon89
@@ -5315,6 +5354,7 @@ __CONST	..\..\stm8l_spl\inc\stm8l15x.h	161;"	macro
 __I	..\..\stm8l_spl\inc\stm8l15x.h	217;"	macro
 __IO	..\..\stm8l_spl\inc\stm8l15x.h	219;"	macro
 __MODSL0__	c:\program files (x86)\cosmic\cxstm8_eval\hstm8\modsl0.h	8;"	macro
+__MODSL0__	c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\modsl0.h	8;"	macro
 __O	..\..\stm8l_spl\inc\stm8l15x.h	218;"	macro
 __STM8L15X_STDPERIPH_VERSION	..\..\stm8l_spl\inc\stm8l15x.h	197;"	macro
 __STM8L15X_STDPERIPH_VERSION_MAIN	..\..\stm8l_spl\inc\stm8l15x.h	193;"	macro
@@ -5354,30 +5394,38 @@ __STM8L15x_WFE_H	..\..\stm8l_spl\inc\stm8l15x_wfe.h	31;"	macro
 __STM8L15x_WWDG_H	..\..\stm8l_spl\inc\stm8l15x_wwdg.h	31;"	macro
 _stext	..\..\stm8l15x_it.h	40;"	prototype	signature:(void)
 _vectab	stm8_interrupt_vector.c	15;"	variable
-assert_failed	..\..\main.c	254;"	function	signature:(uint8_t* file, uint32_t line)
+assert_failed	..\..\main.c	232;"	function	signature:(uint8_t* file, uint32_t line)
 assert_failed	..\..\stm8l15x_conf.h	84;"	prototype	signature:(uint8_t* file, uint32_t line)
 assert_param	..\..\stm8l15x_conf.h	82;"	macro
 assert_param	..\..\stm8l15x_conf.h	86;"	macro
-biParam1	..\..\main.h	35;"	member	struct:__anon3
-biParam2	..\..\main.h	36;"	member	struct:__anon3
 bool	..\..\stm8l_spl\inc\stm8l15x.h	242;"	typedef	typeref:enum:__anon5
-byBars1	..\..\main.h	48;"	member	struct:__anon3
-byBars2	..\..\main.h	49;"	member	struct:__anon3
-byBars3	..\..\main.h	50;"	member	struct:__anon3
+byBars1	..\..\modeln_app.h	31;"	member	struct:__anon3
+byBars2	..\..\modeln_app.h	32;"	member	struct:__anon3
+byBars3	..\..\modeln_app.h	33;"	member	struct:__anon3
 byButtonActive	..\..\user_interface.c	6;"	variable
 byButtons	..\..\user_interface.c	5;"	variable	file:
-byCRC	..\..\main.h	51;"	member	struct:__anon3
-byCmd	..\..\main.h	34;"	member	struct:__anon3
-byDay	..\..\main.h	39;"	member	struct:__anon3
+byCRC	..\..\modeln_app.h	34;"	member	struct:__anon3
+byCmd	..\..\modeln_app.h	17;"	member	struct:__anon3
+byCon_Init	..\..\modeln_app.c	11;"	variable	file:
+byData_In	..\..\modeln_app.c	13;"	variable	file:
+byDay	..\..\modeln_app.h	22;"	member	struct:__anon3
 byDay	..\..\stm8l15x_it.c	110;"	variable
 byDaySeg	..\..\modeln_display_driver.c	59;"	variable
 byDirection	..\..\modeln_control.c	8;"	variable
-byHour	..\..\main.h	41;"	member	struct:__anon3
-byHumidity	..\..\main.h	46;"	member	struct:__anon3
+byHour	..\..\modeln_app.h	24;"	member	struct:__anon3
+byHumidity	..\..\modeln_app.h	29;"	member	struct:__anon3
+byIn	..\..\modeln_app.c	6;"	variable
+byInit	..\..\user_interface.c	9;"	variable	file:
+byInit_Val	..\..\modeln_app.c	12;"	variable	file:
 byMin	..\..\stm8l15x_it.c	112;"	variable
-byMinute	..\..\main.h	42;"	member	struct:__anon3
-byMonth	..\..\main.h	38;"	member	struct:__anon3
+byMinute	..\..\modeln_app.h	25;"	member	struct:__anon3
+byMode	..\..\modeln_app.c	10;"	variable	file:
+byMonth	..\..\modeln_app.h	21;"	member	struct:__anon3
 byNumber	..\..\stm8l15x_it.c	108;"	variable
+byOut	..\..\modeln_app.c	7;"	variable
+byPin	..\..\main.c	135;"	variable	file:
+byPosition	..\..\modeln_app.c	19;"	variable	file:
+byRecAction	..\..\main.c	48;"	variable
 byRunning	..\..\modeln_control.c	7;"	variable
 bySec	..\..\stm8l15x_it.c	112;"	variable
 bySegA	..\..\modeln_display_driver.c	3;"	variable
@@ -5387,14 +5435,23 @@ bySegD	..\..\modeln_display_driver.c	27;"	variable
 bySegE	..\..\modeln_display_driver.c	35;"	variable
 bySegF	..\..\modeln_display_driver.c	43;"	variable
 bySegG	..\..\modeln_display_driver.c	51;"	variable
-bySignal	..\..\main.h	47;"	member	struct:__anon3
+bySignal	..\..\modeln_app.h	30;"	member	struct:__anon3
 bySymbolSeg	..\..\modeln_display_driver.c	70;"	variable
+byThread_Init	..\..\thread_mode.c	4;"	variable	file:
+byThread_State	..\..\thread_mode.c	3;"	variable	file:
 byTrigger	..\..\main.c	46;"	variable
-byWeekDay	..\..\main.h	40;"	member	struct:__anon3
-byYear	..\..\main.h	37;"	member	struct:__anon3
-copy_data	..\..\modeln_app.c	22;"	function	file:	signature:(void)
-delay_ms	..\..\main.c	60;"	function	signature:(uint32_t dwDelay)
-delay_ms	..\..\main.h	28;"	prototype	signature:(uint32_t dwDelay)
+byWeekDay	..\..\modeln_app.h	23;"	member	struct:__anon3
+byYear	..\..\modeln_app.h	20;"	member	struct:__anon3
+byaCentury	..\..\user_interface.c	12;"	variable	file:
+byaMonthCode	..\..\user_interface.c	14;"	variable	file:
+byaMonthCodeLeap	..\..\user_interface.c	13;"	variable	file:
+cParam1	..\..\modeln_app.h	18;"	member	struct:__anon3
+cParam2	..\..\modeln_app.h	19;"	member	struct:__anon3
+command	..\..\modeln_app.h	37;"	enum
+copy_cmd	..\..\modeln_app.c	183;"	function	file:	signature:(void)
+copy_data	..\..\modeln_app.c	114;"	function	file:	signature:(protocol_t *psProt)
+delay_ms	..\..\main.c	57;"	function	signature:(uint32_t dwDelay)
+delay_ms	..\..\main.h	30;"	prototype	signature:(uint32_t dwDelay)
 disableInterrupts	..\..\stm8l_spl\inc\stm8l15x.h	2905;"	macro
 disableInterrupts	..\..\stm8l_spl\inc\stm8l15x.h	2915;"	macro
 disableInterrupts	..\..\stm8l_spl\inc\stm8l15x.h	2926;"	macro
@@ -5410,10 +5467,10 @@ halt	..\..\stm8l_spl\inc\stm8l15x.h	2922;"	macro
 halt	..\..\stm8l_spl\inc\stm8l15x.h	2933;"	macro
 iEnc_delta	..\..\user_interface.c	4;"	variable	file:
 iLastVal	..\..\user_interface.c	3;"	variable	file:
-iTempCurrent	..\..\main.h	44;"	member	struct:__anon3
-iTempOutside	..\..\main.h	45;"	member	struct:__anon3
-iTempSet	..\..\main.h	43;"	member	struct:__anon3
-iaTable	..\..\user_interface.c	23;"	variable	file:
+iTempCurrent	..\..\modeln_app.h	27;"	member	struct:__anon3
+iTempOutside	..\..\modeln_app.h	28;"	member	struct:__anon3
+iTempSet	..\..\modeln_app.h	26;"	member	struct:__anon3
+iaTable	..\..\user_interface.c	31;"	variable	file:
 int16_t	..\..\stm8l_spl\inc\stm8l15x.h	223;"	typedef
 int32_t	..\..\stm8l_spl\inc\stm8l15x.h	224;"	typedef
 int8_t	..\..\stm8l_spl\inc\stm8l15x.h	222;"	typedef
@@ -5421,37 +5478,70 @@ interrupt_handler	stm8_interrupt_vector.c	12;"	member	struct:interrupt_vector	fi
 interrupt_handler_t	stm8_interrupt_vector.c	8;"	typedef	file:
 interrupt_instruction	stm8_interrupt_vector.c	11;"	member	struct:interrupt_vector	file:
 interrupt_vector	stm8_interrupt_vector.c	10;"	struct	file:
-main	..\..\main.c	178;"	function	signature:(void)
-menu_t	..\..\modeln_menu.h	13;"	typedef	typeref:enum:__anon4
+main	..\..\main.c	138;"	function	signature:(void)
+menu_t	..\..\modeln_menu.h	15;"	typedef	typeref:enum:__anon4
+mode	..\..\modeln_app.h	50;"	enum
+modeln_app_buf_available	..\..\modeln_app.c	22;"	function	signature:(void)
+modeln_app_buf_available	..\..\modeln_app.h	61;"	prototype	signature:(void)
+modeln_app_get_buf	..\..\modeln_app.c	27;"	function	signature:(void)
+modeln_app_get_buf	..\..\modeln_app.h	64;"	prototype	signature:(void)
+modeln_app_receive_data	..\..\modeln_app.c	79;"	function	signature:(uint8_t byData)
+modeln_app_receive_data	..\..\modeln_app.h	58;"	prototype	signature:(uint8_t byData)
+modeln_app_update_time	..\..\modeln_app.c	388;"	function	signature:(void)
+modeln_app_update_time	..\..\modeln_app.h	97;"	prototype	signature:(void)
 nop	..\..\stm8l_spl\inc\stm8l15x.h	2908;"	macro
 nop	..\..\stm8l_spl\inc\stm8l15x.h	2918;"	macro
 nop	..\..\stm8l_spl\inc\stm8l15x.h	2929;"	macro
-pbyProtData	..\..\modeln_app.c	4;"	variable
-porotocol_t	..\..\main.h	52;"	typedef	typeref:struct:__anon3
-prot_calc_crc	..\..\modeln_app.c	7;"	function	file:	signature:(porotocol_t *psProt)
+pbyProtData	..\..\modeln_app.c	8;"	variable
+prot_calc_crc	..\..\modeln_app.c	41;"	function	file:	signature:(protocol_t *psProt)
+protocol_t	..\..\modeln_app.h	35;"	typedef	typeref:struct:__anon3
 rim	..\..\stm8l_spl\inc\stm8l15x.h	2906;"	macro
 rim	..\..\stm8l_spl\inc\stm8l15x.h	2916;"	macro
 rim	..\..\stm8l_spl\inc\stm8l15x.h	2927;"	macro
 s16	..\..\stm8l_spl\inc\stm8l15x.h	234;"	typedef
 s32	..\..\stm8l_spl\inc\stm8l15x.h	233;"	typedef
 s8	..\..\stm8l_spl\inc\stm8l15x.h	235;"	typedef
-sKeys	..\..\user_interface.c	14;"	variable	typeref:struct:__anon1
-sProt_rec	..\..\modeln_app.c	3;"	variable
-sProtocol	..\..\main.c	49;"	variable
-sState	..\..\user_interface.c	21;"	variable	typeref:struct:__anon2
+sKeys	..\..\user_interface.c	22;"	variable	typeref:struct:__anon1
+sProt_rec	..\..\modeln_app.c	5;"	variable
+sProtocol	..\..\main.c	50;"	variable
+sState	..\..\user_interface.c	29;"	variable	typeref:struct:__anon2
 sim	..\..\stm8l_spl\inc\stm8l15x.h	2907;"	macro
 sim	..\..\stm8l_spl\inc\stm8l15x.h	2917;"	macro
 sim	..\..\stm8l_spl\inc\stm8l15x.h	2928;"	macro
+thread_mode_disp_conn	..\..\thread_mode.c	10;"	prototype	file:	signature:(void)
+thread_mode_disp_conn	..\..\thread_mode.c	92;"	function	file:	signature:(void)
+thread_mode_disp_err	..\..\thread_mode.c	108;"	function	file:	signature:(void)
+thread_mode_disp_err	..\..\thread_mode.c	16;"	prototype	file:	signature:(void)
+thread_mode_disp_init	..\..\thread_mode.c	7;"	prototype	file:	signature:(void)
+thread_mode_disp_init	..\..\thread_mode.c	83;"	function	file:	signature:(void)
+thread_mode_disp_join	..\..\thread_mode.c	116;"	function	file:	signature:(void)
+thread_mode_disp_join	..\..\thread_mode.c	19;"	prototype	file:	signature:(void)
+thread_mode_disp_ok	..\..\thread_mode.c	101;"	function	file:	signature:(void)
+thread_mode_disp_ok	..\..\thread_mode.c	13;"	prototype	file:	signature:(void)
+thread_mode_get_init	..\..\thread_mode.c	77;"	function	signature:(void)
+thread_mode_get_init	..\..\thread_mode.h	30;"	prototype	signature:(void)
+thread_mode_get_state	..\..\thread_mode.c	62;"	function	signature:(void)
+thread_mode_get_state	..\..\thread_mode.h	33;"	prototype	signature:(void)
+thread_mode_handler	..\..\thread_mode.c	27;"	function	signature:(void)
+thread_mode_handler	..\..\thread_mode.h	18;"	prototype	signature:(void)
+thread_mode_init	..\..\thread_mode.c	21;"	function	signature:(void)
+thread_mode_init	..\..\thread_mode.h	15;"	prototype	signature:(void)
+thread_mode_set_state	..\..\thread_mode.c	67;"	function	signature:(uint8_t byState)
+thread_mode_set_state	..\..\thread_mode.h	25;"	prototype	signature:(uint8_t byState)
+thread_state	..\..\thread_mode.h	4;"	enum
 trap	..\..\stm8l_spl\inc\stm8l15x.h	2909;"	macro
 trap	..\..\stm8l_spl\inc\stm8l15x.h	2919;"	macro
 trap	..\..\stm8l_spl\inc\stm8l15x.h	2930;"	macro
 u16	..\..\stm8l_spl\inc\stm8l15x.h	238;"	typedef
 u32	..\..\stm8l_spl\inc\stm8l15x.h	237;"	typedef
 u8	..\..\stm8l_spl\inc\stm8l15x.h	239;"	typedef
+ui_calc_weekday	..\..\user_interface.c	154;"	function	signature:(uint16_t wYear, uint8_t byMonth, uint8_t byDay)
+ui_calc_weekday	..\..\user_interface.h	13;"	prototype	signature:(uint16_t wYear, uint8_t byMonth, uint8_t byDay)
 uint16_t	..\..\stm8l_spl\inc\stm8l15x.h	228;"	typedef
 uint32_t	..\..\stm8l_spl\inc\stm8l15x.h	229;"	typedef
 uint8_t	..\..\stm8l_spl\inc\stm8l15x.h	227;"	typedef
 wCurPos	..\..\modeln_control.c	4;"	variable	file:
+wLeapYear	..\..\user_interface.c	15;"	variable	file:
 wMaxPos	..\..\modeln_control.c	3;"	variable	file:
 wPos	..\..\modeln_control.c	6;"	variable
 wTimeout	..\..\user_interface.c	7;"	variable

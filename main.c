@@ -51,10 +51,6 @@ protocol_t sProtocol;
 
 //static uint8_t byDirection = DIR_OPEN;
 
-RTC_InitTypeDef   RTC_InitStr;
-RTC_TimeTypeDef   RTC_TimeStr;
-RTC_DateTypeDef   RTC_DateStr;
-RTC_AlarmTypeDef  RTC_AlarmStr;
 /* Private function prototypes -----------------------------------------------*/
 
 /* Private functions ---------------------------------------------------------*/
@@ -62,27 +58,6 @@ void delay_ms(uint32_t dwDelay)
 {
 	uint32_t dwEnd = dwTick;
 	while(dwTick - dwEnd < dwDelay);
-}
-
-void Calendar_Init(void)
-{
-  RTC_InitStr.RTC_HourFormat = RTC_HourFormat_24;
-  RTC_InitStr.RTC_AsynchPrediv = 0x7F;
-  RTC_InitStr.RTC_SynchPrediv = 0x00FF;
-  RTC_Init(&RTC_InitStr);
-
-  RTC_DateStructInit(&RTC_DateStr);
-  RTC_DateStr.RTC_WeekDay = (RTC_Weekday_TypeDef)sProtocol.byWeekDay;
-  RTC_DateStr.RTC_Date = sProtocol.byDay;
-  RTC_DateStr.RTC_Month = (RTC_Month_TypeDef)sProtocol.byMonth;
-  RTC_DateStr.RTC_Year = sProtocol.byYear;
-  RTC_SetDate(RTC_Format_BIN, &RTC_DateStr);
-
-  RTC_TimeStructInit(&RTC_TimeStr);
-  RTC_TimeStr.RTC_Hours   = sProtocol.byHour;
-  RTC_TimeStr.RTC_Minutes = sProtocol.byMinute;
-  RTC_TimeStr.RTC_Seconds = 00;
-  RTC_SetTime(RTC_Format_BIN, &RTC_TimeStr);
 }
 
 void APP_LCD_Init(void)

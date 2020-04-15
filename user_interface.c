@@ -135,6 +135,10 @@ void UI_Handler(void)
 			byNumberOld = byNumber;
 		}
 	}
+	else
+	{
+		
+	}
 }
 
 void UI_Timeout_Reset(void)

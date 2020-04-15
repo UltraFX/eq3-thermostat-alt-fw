@@ -37,6 +37,7 @@ void thread_mode_handler(void)
 				thread_mode_disp_init();
 				break;
 			case THREAD_CONNECTING:
+				byThread_Init = 1;
 				thread_mode_disp_conn();
 				break;
 			case THREAD_NO_CON:

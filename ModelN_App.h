@@ -90,7 +90,10 @@ extern void Display_Temperature(uint8_t byTemp);
 /** @brief Display Humidity */
 extern void Display_Humidity(void);
 
-/** @return initialization state, independent of networking mode */
+/** @brief Return initialization state, independent of networking mode */
 extern uint8_t ModelN_get_init_state(void);
+
+/** @brief update current time to display from RTC */
+extern void modeln_app_update_time(void);
 
 #endif

@@ -26,6 +26,7 @@
 ..\..\stm8l_spl\src\stm8l15x_beep.c
 ..\..\stm8l_spl\src\stm8l15x_aes.c
 ..\..\stm8l_spl\src\stm8l15x_adc.c
+..\..\thread_mode.c
 ..\..\modeln_display_driver.c
 ..\..\modeln_control.c
 ..\..\modeln_menu.c
@@ -70,5 +71,7 @@ stm8_interrupt_vector.c
 ..\..\stm8l_spl\inc\stm8l15x_usart.h
 ..\..\stm8l_spl\inc\stm8l15x_wfe.h
 ..\..\stm8l_spl\inc\stm8l15x_wwdg.h
+..\..\thread_mode.h
 ..\..\user_interface.h
 c:\program files (x86)\cosmic\cxstm8_eval\hstm8\modsl0.h
+c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\modsl0.h

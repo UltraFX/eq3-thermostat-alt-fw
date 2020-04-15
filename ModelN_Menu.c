@@ -32,6 +32,7 @@ void ModelN_Menu(void)
 		eState = MENU_SHOW_TIME;
 		break;
 	case MENU_SHOW_TIME:
+		modeln_app_update_time();
 		Display_Time();
 		bySleep = 1;
 		break;

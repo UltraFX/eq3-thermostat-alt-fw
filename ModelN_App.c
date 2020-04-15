@@ -12,6 +12,10 @@ static uint8_t* byCon_Init;
 static uint8_t	byInit_Val = 1;
 static uint8_t  byData_In = 0;
 
+static RTC_InitTypeDef   RTC_InitStr;
+static RTC_TimeTypeDef   RTC_TimeStr;
+static RTC_DateTypeDef   RTC_DateStr;
+
 static volatile uint8_t byPosition = 0;
 
 
@@ -60,6 +64,16 @@ static void prot_calc_crc(protocol_t *psProt)
   }
   
   sProtocol.byCRC = byCRC;
+}
+
+void Calendar_Init(void)
+{	
+  RTC_InitStr.RTC_HourFormat = RTC_HourFormat_24;
+  RTC_InitStr.RTC_AsynchPrediv = 0x7F;
+  RTC_InitStr.RTC_SynchPrediv = 0x00FF;
+  RTC_Init(&RTC_InitStr);
+
+  RTC_DateStructInit(&RTC_DateStr);
 }
 
 void modeln_app_receive_data(uint8_t byData)
@@ -112,12 +126,23 @@ static void copy_data(protocol_t *psProt)
 		sProtocol.byDay =  				psProt->byDay;
 		
 		sProtocol.byWeekDay =  	  ui_calc_weekday(sProtocol.byYear, sProtocol.byMonth, sProtocol.byDay);
+		
+		RTC_DateStr.RTC_WeekDay = (RTC_Weekday_TypeDef)sProtocol.byWeekDay;
+		RTC_DateStr.RTC_Date = sProtocol.byDay;
+		RTC_DateStr.RTC_Month = (RTC_Month_TypeDef)sProtocol.byMonth;
+		RTC_DateStr.RTC_Year = sProtocol.byYear;
+		RTC_SetDate(RTC_Format_BIN, &RTC_DateStr);
 	}
 	
 	if(byBitCode & BC_TIME)
 	{
 		sProtocol.byHour =  			psProt->byHour;
 		sProtocol.byMinute =  		psProt->byMinute;
+		RTC_TimeStructInit(&RTC_TimeStr);
+		RTC_TimeStr.RTC_Hours   = sProtocol.byHour;
+		RTC_TimeStr.RTC_Minutes = sProtocol.byMinute;
+		RTC_TimeStr.RTC_Seconds = 00;
+		RTC_SetTime(RTC_Format_BIN, &RTC_TimeStr);
 	}
 	
 	if(byBitCode & BC_CUR_TEMP)
@@ -208,12 +233,14 @@ void ModelN_Cmd(protocol_t *psProt)
 		case CMD_STATE:
 				switch(byMode)
 				{
-					case MODE_THREAD:
-						/*Disp_Clear();
-				    Disp_Number(2, 5);*/
-						
+					case MODE_THREAD:						
 						thread_mode_set_state((uint8_t)psProt->cParam1);
 						byCon_Init = thread_mode_get_init();
+						if(thread_mode_get_init() != 0)
+						{
+							ModelN_Menu_Set_State(MENU_THREAD);
+						}
+						
 						sProtocol.byCmd =  CMD_ACK;
 						break;
 					/* TODO: Implement other modes (WiFi, CAN, BT, ...) */
@@ -265,6 +292,8 @@ void ModelN_Init(void)
 	sProtocol.iTempOutside = 0;
 	sProtocol.byHumidity = 50;
 	sProtocol.bySignal = 1;
+	
+	Calendar_Init();
 }
 
 uint8_t ModelN_Data_Received(void)
@@ -356,4 +385,11 @@ void Display_Humidity(void)
 uint8_t ModelN_get_init_state(void)
 {
 	return *byCon_Init;
+}
+
+void modeln_app_update_time(void)
+{
+	RTC_GetTime(RTC_Format_BIN, &RTC_TimeStr);
+	sProtocol.byHour = RTC_TimeStr.RTC_Hours;
+	sProtocol.byMinute = RTC_TimeStr.RTC_Minutes;
 }
